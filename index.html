@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카공여지도</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&family=Jua&family=Gasoek+One&family=Do+Hyeon&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        #map {
+            flex: 1;
+        }
+        .sidebar {
+            width: 400px;
+            background-color: #f4f4f9;
+            border-right: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .search-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: none;
+            background-color: white;
+        }
+        .search-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .search-results {
+            padding: 10px;
+            display: none;
+        }
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .search-results li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .info {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .info.hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f9;
+        }
+        video {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .cafe-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .cafe-item:hover {
+            background-color: #eee;
+        }
+    
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-top: 1px solid #ddd;
+                max-height: 174px;
+                overflow-y: hidden;
+            }
+            .sidebar.expanded {
+                max-height: 100%;
+                overflow-y: auto;
+            }
+        }
+    
+        .school-select-container {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+        }
+        .school-select-container select {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: none;
+            background-color: white;
+            padding-right: 30px;
+        }
+        .school-select-container::after {
+            content: '\E5C5';
+            font-family: 'Material Symbols Outlined';
+            position: absolute;
+            right: 25px;
+            top: 63%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #333;
+        }
+    </style>    
+</head>
+<body>
+    <div class="container">
+        <!-- 사이드바 영역 -->
+        <div class="sidebar" id="sidebar">
+            <!-- 헤더 영역 -->
+            <div class="header" onclick="toggleSidebar()">
+                <h1 style="font-family: 'Jua', sans-serif; margin-top: 5px; margin-bottom: 5px;">카공여지도</h1>
+            </div>
+            <!-- 학교 선택 영역 -->
+            <div class="school-select-container" style="padding-bottom: 0px;">
+                <select id="school-select" onchange="moveToSchool()">
+                    <option value="" data-message="" data-link="">학교를 선택하세요</option>
+                    <option value="성균관대" data-message="카공 커뮤니티" data-link="https://open.kakao.com/o/gUqaKEvg">성균관대</option>
+                    <option value="경희대" data-message="카공 커뮤니티" data-link="https://open.kakao.com/o/gQvXihxg">경희대</option>
+                    <option value="한국외대" data-message="카공 커뮤니티" data-link="https://open.kakao.com/o/gQvXihxg">한국외대</option>
+                </select>
+            </div>
+            <!-- 검색 영역 -->
+            <div class="search-container">
+                <input type="text" id="search" placeholder="카페명을 검색하세요" onclick="expandSidebar()">
+                <button id="search-button" aria-label="Search" onclick="expandSidebar()" style="padding-top: 5px; padding-bottom: 5px; padding-right: 5px; padding-left: 5px;">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </div>
+            <!-- 검색 결과 영역 -->
+            <div id="search-results" class="search-results">
+                <ul id="results-list" style="margin-top: 0px; margin-bottom: 0px;"></ul>
+            </div>
+            <!-- 카페 정보 영역, 처음에는 숨김 처리 -->
+            <div class="info hidden" id="cafe-info" style="padding-top: 5px;">
+                <h2 style="margin-top: 0; margin-bottom: 10px;" id="cafe-name"></h2>
+                <p id="cafe-message" style="font-family: 'Nanum Pen Script', cursive; font-size: 22px;"></p> <!-- 카페 한마디 -->
+                <p><strong>주소:</strong> <span id="cafe-address"></span></p>
+                <p><strong>권장 시간:</strong> <span id="cafe-hours"></span></p>
+                <p><strong>아메리카노 가격:</strong> <span id="cafe-price"></span></p>
+                <p><strong>좌석 및 콘센트 정보</strong></p>
+                <table id="cafe-seating">
+                    <thead>
+                        <tr>
+                            <th>좌석 종류</th>
+                            <th>좌석 수</th>
+                            <th>콘센트 좌석 수</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seating-info"></tbody>
+                </table>
+                <p><strong>카페 내부 영상 [분위기 & 소음]</strong></p>
+                <video id="cafe-video" controls>
+                    <source id="cafe-video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <!-- 지도 영역 -->
+        <div id="map"></div>
+    </div>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=5677a76b3a460a889d4b1caf0b9d39d5"></script>
+    <script>
+        var map;
+        var schoolCoordinates = {
+            "성균관대": new kakao.maps.LatLng(37.5872, 126.9919),
+            "경희대": new kakao.maps.LatLng(37.5955, 127.0526),
+            "한국외대": new kakao.maps.LatLng(37.5972, 127.0590)
+        };
+
+        function expandSidebar() {
+            document.getElementById('sidebar').classList.add('expanded');
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('expanded');
+        }
+
+        function showCafeDetails(cafe) {
+            document.getElementById('cafe-info').classList.remove('hidden');
+            document.getElementById('cafe-name').textContent = cafe.name;
+            document.getElementById('cafe-message').textContent = cafe.message;
+            document.getElementById('cafe-address').textContent = cafe.address;
+            document.getElementById('cafe-hours').textContent = cafe.hours;
+            document.getElementById('cafe-price').textContent = cafe.price;
+            var videoElement = document.getElementById('cafe-video');
+            var videoSource = document.getElementById('cafe-video-source');
+            videoSource.src = cafe.video;
+            videoElement.load();
+
+            var seatingInfo = document.getElementById('seating-info');
+            seatingInfo.innerHTML = '';
+            cafe.seating.forEach(function(seat) {
+                var row = document.createElement('tr');
+                var typeCell = document.createElement('td');
+                var totalCell = document.createElement('td');
+                var powerCell = document.createElement('td');
+
+                typeCell.textContent = seat.type;
+                totalCell.textContent = seat.total;
+                powerCell.textContent = seat.withPower;
+
+                row.appendChild(typeCell);
+                row.appendChild(totalCell);
+                row.appendChild(powerCell);
+
+                seatingInfo.appendChild(row);
+            });
+
+            map.setCenter(cafe.position);
+
+            document.getElementById('cafe-info').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function moveToSchool() {
+            var selectedSchool = document.getElementById('school-select').value;
+            if (selectedSchool && schoolCoordinates[selectedSchool]) {
+                map.setCenter(schoolCoordinates[selectedSchool]);
+            }
+        }
+
+        function addSchoolMarkers() {
+            var select = document.getElementById('school-select');
+            for (var i = 1; i < select.options.length; i++) {
+                var option = select.options[i];
+                var schoolName = option.value;
+                var message = option.getAttribute('data-message');
+                var link = option.getAttribute('data-link');
+
+                if (schoolCoordinates[schoolName]) {
+                    var content = document.createElement('div');
+                    content.style.display = 'flex';
+                    content.style.flexDirection = 'column';
+                    content.style.justifyContent = 'center';
+                    content.style.alignItems = 'center';
+                    content.style.padding = '5px';
+                    content.style.background = 'white';
+                    content.style.border = '1px solid black';
+                    content.style.borderRadius = '5px';
+                    content.style.cursor = 'pointer';
+                    content.style.fontFamily = 'Noto Sans KR, sans-serif';
+                    content.style.fontSize = '14px';
+                    content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + schoolName + '</span>' + message;
+
+                    var marker = new kakao.maps.CustomOverlay({
+                        map: map,
+                        position: schoolCoordinates[schoolName],
+                        content: content,
+                        yAnchor: 1
+                    });
+
+                    content.addEventListener('click', (function(link) {
+                        return function() {
+                            window.location.href = link;
+                        };
+                    })(link));
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var container = document.getElementById('map');
+            var options = {
+                center: new kakao.maps.LatLng(37.58823, 126.9936),
+                level: 3
+            };
+
+            map = new kakao.maps.Map(container, options);
+
+            var cafes = [
+                {
+                    name: "진주리",
+                    position: new kakao.maps.LatLng(37.58670, 126.9963),
+                    message: "권장 시간만 지켜주신다면, 카공은 언제나 환영입니다!",
+                    address: "서울 종로구 성균관로7길 3 지하1층",
+                    hours: "2시간 권장",
+                    price: "4,000원",
+                    video: "https://file.notion.so/f/f/861c0ed5-c7cf-4345-aef6-769aca2267bb/e6fe4b0f-3561-4aef-b707-31a29f479ea9/%EC%A7%84%EC%A3%BC%EB%A6%AC.mov?id=8aa7c5c4-643a-4079-95d5-62d7b3330ea4&table=block&spaceId=861c0ed5-c7cf-4345-aef6-769aca2267bb&expirationTimestamp=1718784000000&signature=LAm-OWdwafKqOaBtggaBZXugWsRj2WS553jlfmYcWeM",
+                    seating: [
+                        { type: "1인석", total: 3, withPower: 0 },
+                        { type: "2인석", total: 1, withPower: 0 },
+                        { type: "3인석", total: 2, withPower: 2 },
+                        { type: "4인석", total: 2, withPower: 0 },
+                        { type: "5인석", total: 1, withPower: 0 }
+                    ]
+                },
+                {
+                    name: "델라",
+                    position: new kakao.maps.LatLng(37.58538, 126.9971),
+                    message: "3시간이 지나면 디저트나 음료를 추가로 주문 해주시면 감사하겠습니다.",
+                    address: "서울 종로구 성균관로 30 1,2층",
+                    hours: "3시간 권장",
+                    price: "3,500원",
+                    video: "https://file.notion.so/f/f/861c0ed5-c7cf-4345-aef6-769aca2267bb/250a06fb-9137-4310-ad49-0103d22f26a5/%EB%8D%B8%EB%9D%BC.mov?id=a46f41c0-4717-474f-b244-7aaad30bacc2&table=block&spaceId=861c0ed5-c7cf-4345-aef6-769aca2267bb&expirationTimestamp=1718784000000&signature=n6q_RsVYksofeMoWI_6hMLheembIctmolpjNfgT6S_c",
+                    seating: [
+                        { type: "1인석", total: 6, withPower: 0 },
+                        { type: "2인석", total: 10, withPower: 9 },
+                        { type: "4인석", total: 5, withPower: 4 }
+                    ]
+                },
+                {
+                    name: "벨하우스",
+                    position: new kakao.maps.LatLng(37.58454, 126.9976),
+                    message: "2층에 카공할 공간이 마련되어 있습니다! 많이 방문해주세요.",
+                    address: "서울 종로구 성균관로4길 3 1, 2층",
+                    hours: "시간 제한 없음",
+                    price: "4,000원",
+                    video: "https://file.notion.so/f/f/861c0ed5-c7cf-4345-aef6-769aca2267bb/616468fc-6f1a-4f48-b730-c4f5f6f9489c/%EB%B2%A8%ED%95%98%EC%9A%B0%EC%8A%A4.mov?id=ad22ac69-07c4-4172-af74-afd396def8a5&table=block&spaceId=861c0ed5-c7cf-4345-aef6-769aca2267bb&expirationTimestamp=1718784000000&signature=zQZkj-A3UjA4nHW_iANUVVNxruRmLdYMZgXHlb8sP2Y",
+                    seating: [
+                        { type: "2인석", total: 7, withPower: 5 }
+                    ]
+                }
+            ];
+
+            var markers = [];
+
+            cafes.forEach(function(cafe) {
+                var content = document.createElement('div');
+                content.style.display = 'flex';
+                content.style.flexDirection = 'column';
+                content.style.justifyContent = 'center';
+                content.style.alignItems = 'center';
+                content.style.padding = '5px';
+                content.style.background = 'white';
+                content.style.border = '1px solid black';
+                content.style.borderRadius = '5px';
+                content.style.cursor = 'pointer';
+                content.style.fontFamily = 'Noto Sans KR, sans-serif';
+                content.style.fontSize = '14px';
+                content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + cafe.name + '</span>' + cafe.hours;
+
+                var marker = new kakao.maps.CustomOverlay({
+                    map: map,
+                    position: cafe.position,
+                    content: content,
+                    yAnchor: 1
+                });
+
+                markers.push(marker);
+
+                content.addEventListener('click', function() {
+                    expandSidebar();
+                    showCafeDetails(cafe);
+                });
+            });
+
+            function searchCafes() {
+                var query = document.getElementById('search').value.toLowerCase();
+                var filteredCafes = cafes.filter(function(cafe) {
+                    return cafe.name.toLowerCase().includes(query);
+                });
+
+                var resultsList = document.getElementById('results-list');
+                resultsList.innerHTML = '';
+                if (filteredCafes.length > 0) {
+                    document.getElementById('search-results').style.display = 'block';
+                    filteredCafes.forEach(function(cafe) {
+                        var listItem = document.createElement('li');
+                        listItem.textContent = cafe.name;
+                        listItem.addEventListener('click', function() {
+                            document.getElementById('search-results').style.display = 'none';
+                            expandSidebar();
+                            showCafeDetails(cafe);
+                            var marker = markers[cafes.indexOf(cafe)];
+                            kakao.maps.event.trigger(marker.a, 'click');
+                        });
+                        resultsList.appendChild(listItem);
+                    });
+                } else {
+                    document.getElementById('search-results').style.display = 'none';
+                }
+            }
+
+            document.getElementById('search-button').addEventListener('click', searchCafes);
+            document.getElementById('search').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    searchCafes();
+                }
+            });
+
+            // 학교 마커 추가
+            addSchoolMarkers();
+        });
+    </script>
+</body>
+</html>
