@@ -1,0 +1,147 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+}
+.container {
+    display: flex;
+    height: 100%;
+}
+#map {
+    flex: 1;
+}
+.sidebar {
+    width: 400px;
+    background-color: #f4f4f9;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    background-color: white;
+}
+.search-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.search-results {
+    padding: 10px;
+    display: none;
+}
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+.search-results li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+.info {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+.info.hidden {
+    display: none;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #f4f4f9;
+}
+video {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.cafe-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+.cafe-item:hover {
+    background-color: #eee;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-top: 1px solid #ddd;
+        max-height: 174px;
+        overflow-y: hidden;
+    }
+    .sidebar.expanded {
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
+.school-select-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+.school-select-container select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: none;
+    background-color: white;
+    padding-right: 30px;
+}
+.school-select-container::after {
+    content: '\E5C5';
+    font-family: 'Material Symbols Outlined';
+    position: absolute;
+    right: 25px;
+    top: 63%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+}
