@@ -1,4 +1,6 @@
 var map;
+var markers = [];
+
 var schoolCoordinates = {
     "성균관대": new kakao.maps.LatLng(37.5872, 126.9919),
     "경희대": new kakao.maps.LatLng(37.5955, 127.0526),
@@ -15,36 +17,39 @@ function toggleSidebar() {
 
 function showCafeDetails(cafe) {
     document.getElementById('cafe-info').classList.remove('hidden');
-    document.getElementById('cafe-name').textContent = cafe.name;
-    document.getElementById('cafe-message').textContent = cafe.message;
-    document.getElementById('cafe-address').textContent = cafe.address;
-    document.getElementById('cafe-hours').textContent = cafe.hours;
-    document.getElementById('cafe-price').textContent = cafe.price;
+    document.getElementById('cafe-name').textContent = cafe.Name;
+    document.getElementById('cafe-message').textContent = cafe.Message;
+    document.getElementById('cafe-address').textContent = cafe.Address;
+    document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
+    document.getElementById('cafe-hours').textContent = cafe.Hours;
+    document.getElementById('cafe-price').textContent = cafe.Price;
     var videoElement = document.getElementById('cafe-video');
     var videoSource = document.getElementById('cafe-video-source');
-    videoSource.src = cafe.video;
+    videoSource.src = cafe['Video URL'];
     videoElement.load();
 
     var seatingInfo = document.getElementById('seating-info');
     seatingInfo.innerHTML = '';
-    cafe.seating.forEach(function(seat) {
-        var row = document.createElement('tr');
-        var typeCell = document.createElement('td');
-        var totalCell = document.createElement('td');
-        var powerCell = document.createElement('td');
+    for (var i = 1; i <= 5; i++) {
+        if (cafe[`Seating Type ${i}`]) {
+            var row = document.createElement('tr');
+            var typeCell = document.createElement('td');
+            var totalCell = document.createElement('td');
+            var powerCell = document.createElement('td');
 
-        typeCell.textContent = seat.type;
-        totalCell.textContent = seat.total;
-        powerCell.textContent = seat.withPower;
+            typeCell.textContent = cafe[`Seating Type ${i}`];
+            totalCell.textContent = cafe[`Seating Count ${i}`];
+            powerCell.textContent = cafe[`Power Count ${i}`];
 
-        row.appendChild(typeCell);
-        row.appendChild(totalCell);
-        row.appendChild(powerCell);
+            row.appendChild(typeCell);
+            row.appendChild(totalCell);
+            row.appendChild(powerCell);
 
-        seatingInfo.appendChild(row);
-    });
+            seatingInfo.appendChild(row);
+        }
+    }
 
-    map.setCenter(cafe.position);
+    map.setCenter(new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']));
 
     document.getElementById('cafe-info').scrollIntoView({ behavior: 'smooth' });
 }
@@ -104,42 +109,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
     map = new kakao.maps.Map(container, options);
 
-    var markers = [];
+    fetch('/get_cafes')
+        .then(response => response.json())
+        .then(cafes => {
+            console.log(cafes); // 데이터 콘솔에 출력
+            cafes.forEach(function(cafe) {
+                var content = document.createElement('div');
+                content.style.display = 'flex';
+                content.style.flexDirection = 'column';
+                content.style.justifyContent = 'center';
+                content.style.alignItems = 'center';
+                content.style.padding = '5px';
+                content.style.background = 'white';
+                content.style.border = '1px solid black';
+                content.style.borderRadius = '5px';
+                content.style.cursor = 'pointer';
+                content.style.fontFamily = 'Noto Sans KR, sans-serif';
+                content.style.fontSize = '14px';
+                content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + cafe.Name + '</span>' + cafe.Hours;
 
-    cafes.forEach(function(cafe) {
-        var content = document.createElement('div');
-        content.style.display = 'flex';
-        content.style.flexDirection = 'column';
-        content.style.justifyContent = 'center';
-        content.style.alignItems = 'center';
-        content.style.padding = '5px';
-        content.style.background = 'white';
-        content.style.border = '1px solid black';
-        content.style.borderRadius = '5px';
-        content.style.cursor = 'pointer';
-        content.style.fontFamily = 'Noto Sans KR, sans-serif';
-        content.style.fontSize = '14px';
-        content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + cafe.name + '</span>' + cafe.hours;
+                var marker = new kakao.maps.CustomOverlay({
+                    map: map,
+                    position: new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']),
+                    content: content,
+                    yAnchor: 1
+                });
 
-        var marker = new kakao.maps.CustomOverlay({
-            map: map,
-            position: cafe.position,
-            content: content,
-            yAnchor: 1
+                markers.push(marker);
+
+                content.addEventListener('click', function() {
+                    expandSidebar();
+                    showCafeDetails(cafe);
+                });
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching cafe data:', error);
         });
-
-        markers.push(marker);
-
-        content.addEventListener('click', function() {
-            expandSidebar();
-            showCafeDetails(cafe);
-        });
-    });
 
     function searchCafes() {
         var query = document.getElementById('search').value.toLowerCase();
         var filteredCafes = cafes.filter(function(cafe) {
-            return cafe.name.toLowerCase().includes(query);
+            return cafe.Name.toLowerCase().includes(query);
         });
 
         var resultsList = document.getElementById('results-list');
@@ -148,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('search-results').style.display = 'block';
             filteredCafes.forEach(function(cafe) {
                 var listItem = document.createElement('li');
-                listItem.textContent = cafe.name;
+                listItem.textContent = cafe.Name;
                 listItem.addEventListener('click', function() {
                     document.getElementById('search-results').style.display = 'none';
                     expandSidebar();
