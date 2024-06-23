@@ -145,3 +145,37 @@ video {
     pointer-events: none;
     color: #333;
 }
+
+#chat-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-messages {
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+#chat-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#chat-form input[type="text"] {
+    padding: 5px;
+    width: 200px;
+}
+
+#chat-form button {
+    padding: 5px 10px;
+    width: 60px;
+}

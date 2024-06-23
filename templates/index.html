@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400;700&family=Noto+Sans+KR:wght@400;700&family=Jua&family=Gasoek+One&family=Do+Hyeon&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -65,10 +67,55 @@
         <!-- 지도 영역 -->
         <div id="map"></div>
     </div>
+
+    <div id="chat-container">
+        <div id="chat-messages"></div>
+        <form id="chat-form">
+            <input type="text" id="username" placeholder="사용자명" required>
+        <br>
+            <input type="text" id="message" placeholder="메시지를 입력하세요" required>
+            <button type="submit">전송</button>
+        </form>
+    </div>
+
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0263a29ce4d7869fc8090d309d2bc371"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script>
+        var socket = io();
+
+        // 연결 이벤트 처리
+        socket.on('connect', function() {
+            console.log('Connected to server');
+            socket.emit('get_messages');
+        });
+
+        // 메시지 수신 이벤트 처리
+        socket.on('receive_message', function(data) {
+            var chatMessages = document.getElementById('chat-messages');
+            var messageElement = document.createElement('div');
+            messageElement.innerHTML = '<strong>' + data.username + ':</strong> ' + data.message;
+            chatMessages.appendChild(messageElement);
+        });
+
+        // 채팅 메시지 목록 수신 이벤트 처리
+        socket.on('chat_messages', function(messages) {
+            var chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = '';
+            messages.forEach(function(message) {
+                var messageElement = document.createElement('div');
+                messageElement.innerHTML = '<strong>' + message.username + ':</strong> ' + message.message;
+                chatMessages.appendChild(messageElement);
+            });
+        });
+
+        // 메시지 전송 폼 제출 이벤트 처리
+        document.getElementById('chat-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('username').value;
+            var message = document.getElementById('message').value;
+            socket.emit('send_message', {username: username, message: message});
+            document.getElementById('message').value = '';
+        });
+    </script>
 </body>
 </html>
-
-
-
