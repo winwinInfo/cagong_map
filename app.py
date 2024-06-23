@@ -33,4 +33,5 @@ def handle_send_message(data):
     emit('receive_message', {'message': message}, broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=8000, debug=True)
+    socketio.run(app, host='localhost', port=8000, debug=True)
+
