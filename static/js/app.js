@@ -1,5 +1,6 @@
 var map;
 var markers = [];
+var cafes = []; // 전역 변수로 cafes를 선언하여 fetch 함수 내에서 데이터를 저장
 
 var schoolCoordinates = {
     "성균관대": new kakao.maps.LatLng(37.5872, 126.9919),
@@ -111,8 +112,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetch('/get_cafes')
         .then(response => response.json())
-        .then(cafes => {
-            console.log(cafes); // 데이터 콘솔에 출력
+        .then(data => {
+            cafes = data; // 전역 변수에 데이터 저장
             cafes.forEach(function(cafe) {
                 var content = document.createElement('div');
                 content.style.display = 'flex';
