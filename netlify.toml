@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/cafe_info.json"
+  to = "/cafe_info.json"
+  status = 200
