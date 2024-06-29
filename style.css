@@ -10,6 +10,10 @@ body, html {
 #map {
     flex: 1;
 }
+#cafe-video-container {
+    width: 100%;
+    height: 315px; /* 원하는 높이 값으로 설정 */
+}
 .sidebar {
     width: 400px;
     background-color: #f4f4f9;
@@ -24,6 +28,40 @@ body, html {
     text-align: center;
     padding: 10px 0;
 }
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-family: 'Jua', sans-serif;
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.back-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.back-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.empty-space {
+    width: 24px;
+}
+
 .search-container {
     display: flex;
     align-items: center;
@@ -115,7 +153,25 @@ video {
         max-height: 100%;
         overflow-y: auto;
     }
+
+    .back-button{
+        display: block;
+    }
 }
+
+@media (min-width: 769px) {
+    .container {
+        flex-direction: row;
+    }
+    .sidebar {
+        width: 400px;
+        border-left: 1px solid #ddd;
+        border-top: none;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}
+
 
 .school-select-container {
     display: flex;
@@ -146,36 +202,3 @@ video {
     color: #333;
 }
 
-#chat-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px;
-    background-color: #f1f1f1;
-    padding: 10px;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-}
-
-#chat-messages {
-    flex-grow: 1;
-    margin-bottom: 10px;
-}
-
-#chat-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-#chat-form input[type="text"] {
-    padding: 5px;
-    width: 200px;
-}
-
-#chat-form button {
-    padding: 5px 10px;
-    width: 60px;
-}

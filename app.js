@@ -12,9 +12,29 @@ function expandSidebar() {
    document.getElementById('sidebar').classList.add('expanded');
 }
 
+// function toggleSidebar() {
+//    document.getElementById('sidebar').classList.toggle('expanded');
+    
+//     if (sidebar.style.display === 'none') {
+//         sidebar.style.display = 'block';
+//         map.style.width = 'calc(100% - 400px)';
+//     } else {
+//         sidebar.style.display = 'none';
+//         map.style.width = '100%';
+//     }
+// }
 function toggleSidebar() {
-   document.getElementById('sidebar').classList.toggle('expanded');
+    var sidebar = document.getElementById('sidebar');
+    var cafeInfo = document.getElementById('cafe-info');
+
+    if (cafeInfo.classList.contains('hidden')) {
+        sidebar.classList.toggle('expanded');
+    } else {
+        cafeInfo.classList.add('hidden');
+        sidebar.classList.remove('expanded');
+    }
 }
+
 
 function showCafeDetails(cafe) {
    document.getElementById('cafe-info').classList.remove('hidden');
@@ -24,11 +44,29 @@ function showCafeDetails(cafe) {
    document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
    document.getElementById('cafe-hours').textContent = cafe.Hours;
    document.getElementById('cafe-price').textContent = cafe.Price;
-   var videoElement = document.getElementById('cafe-video');
-   var videoSource = document.getElementById('cafe-video-source');
-   videoSource.src = cafe['Video URL'];
-   videoElement.load();
+/////video/////
+var videoElement = document.getElementById('cafe-video');
+var videoContainer = document.getElementById('cafe-video-container');
 
+if (cafe['Video URL'].includes('youtube.com/shorts/')) {
+    var videoId = cafe['Video URL'].split('youtube.com/shorts/')[1];
+    var iframeElement = document.createElement('iframe');
+    iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
+    iframeElement.width = '100%';
+    iframeElement.height = '100%';
+    iframeElement.frameborder = '0';
+    iframeElement.allowfullscreen = true;
+    
+    videoContainer.innerHTML = '';
+    videoContainer.appendChild(iframeElement);
+    videoElement.style.display = 'none';
+} else {
+    videoElement.style.display = 'block';
+    var videoSource = document.getElementById('cafe-video-source');
+    videoSource.src = cafe['Video URL'];
+    videoElement.load();
+}
+/////end/////
    var seatingInfo = document.getElementById('seating-info');
    seatingInfo.innerHTML = '';
    for (var i = 1; i <= 5; i++) {

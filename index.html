@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    //안녕하세요 아이비입니다:
 <head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-525LZ9H5NB"></script>
@@ -25,12 +24,20 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="container">
+    
         <!-- 사이드바 영역 -->
         <div class="sidebar" id="sidebar">
             <!-- 헤더 영역 -->
-            <div class="header" onclick="toggleSidebar()">
-                <h1 style="font-family: 'Jua', sans-serif; margin-top: 5px; margin-bottom: 5px;">카공여지도</h1>
-            </div>
+            <!-- <div class="header" onclick="toggleSidebar()"> -->
+                <div class="header">
+                    <div class="header-content">
+                        <button id="back-button" class="back-button" onclick="toggleSidebar()">
+                            <img src="map_icon.png" alt="Back" class="back-icon">
+                        </button>
+                        <h1 class="header-title" onclick = "toggleSidebar()">카공여지도</h1>
+                        <div class="empty-space"></div>
+                    </div>
+                </div>                  
             <!-- 학교 선택 영역 -->
             <div class="school-select-container" style="padding-bottom: 0px;">
                 <select id="school-select" onchange="moveToSchool()">
@@ -71,16 +78,17 @@
                     <tbody id="seating-info"></tbody>
                 </table>
                 <p><strong>카페 내부 영상 [분위기 & 소음]</strong></p>
-                <video id="cafe-video" controls>
-                    <source id="cafe-video-source" src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <div id="cafe-video-container">
+                    <video id="cafe-video" controls>
+                        <source id="cafe-video-source" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
-        </div>
-        <!-- 지도 영역 -->
-        <div id="map"></div>
+    <!--지도랑 container 분리-->
     </div>
-
+    <!-- 지도 영역 -->
+    <div id="map"></div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0263a29ce4d7869fc8090d309d2bc371"></script>
     <script src="app.js"></script>
 </body>
