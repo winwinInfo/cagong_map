@@ -20,5 +20,4 @@ simple-websocket==1.0.0
 urllib3==1.26.19
 Werkzeug==2.2.2
 wsproto==1.2.0
-pandas==2.2.2
 openpyxl==3.1.5
