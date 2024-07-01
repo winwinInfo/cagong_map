@@ -189,6 +189,13 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
                 content.style.fontSize = '14px';
                 content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + cafe.Name + '</span>' + cafe.Hours;
 
+                if (cafe['Co-work']===1 || cafe['Co-work'] === '1'){
+                    content.style.background = '#A4D65E';
+                    content.style.color = 'black';
+                } else {
+                    content.style.background = 'white';
+                }
+
                 var marker = new kakao.maps.CustomOverlay({
                     map: map,
                     position: new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']),
