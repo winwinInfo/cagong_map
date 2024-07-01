@@ -12,17 +12,6 @@ function expandSidebar() {
    document.getElementById('sidebar').classList.add('expanded');
 }
 
-// function toggleSidebar() {
-//    document.getElementById('sidebar').classList.toggle('expanded');
-    
-//     if (sidebar.style.display === 'none') {
-//         sidebar.style.display = 'block';
-//         map.style.width = 'calc(100% - 400px)';
-//     } else {
-//         sidebar.style.display = 'none';
-//         map.style.width = '100%';
-//     }
-// }
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     var cafeInfo = document.getElementById('cafe-info');
@@ -37,60 +26,100 @@ function toggleSidebar() {
 
 
 function showCafeDetails(cafe) {
-   document.getElementById('cafe-info').classList.remove('hidden');
-   document.getElementById('cafe-name').textContent = cafe.Name;
-   document.getElementById('cafe-message').textContent = cafe.Message;
-   document.getElementById('cafe-address').textContent = cafe.Address;
-   document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
-   document.getElementById('cafe-hours').textContent = cafe.Hours;
-   document.getElementById('cafe-price').textContent = cafe.Price;
-/////video/////
-var videoElement = document.getElementById('cafe-video');
-var videoContainer = document.getElementById('cafe-video-container');
+    console.log("showCafeDetails called for:", cafe.Name);
 
-if (cafe['Video URL'].includes('youtube.com/shorts/')) {
-    var videoId = cafe['Video URL'].split('youtube.com/shorts/')[1];
-    var iframeElement = document.createElement('iframe');
-    iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
-    iframeElement.width = '100%';
-    iframeElement.height = '100%';
-    iframeElement.frameborder = '0';
-    iframeElement.allowfullscreen = true;
-    
-    videoContainer.innerHTML = '';
-    videoContainer.appendChild(iframeElement);
-    videoElement.style.display = 'none';
-} else {
-    videoElement.style.display = 'block';
-    var videoSource = document.getElementById('cafe-video-source');
-    videoSource.src = cafe['Video URL'];
-    videoElement.load();
-}
-/////end/////
-   var seatingInfo = document.getElementById('seating-info');
-   seatingInfo.innerHTML = '';
-   for (var i = 1; i <= 5; i++) {
-       if (cafe[`Seating Type ${i}`]) {
-           var row = document.createElement('tr');
-           var typeCell = document.createElement('td');
-           var totalCell = document.createElement('td');
-           var powerCell = document.createElement('td');
+    document.getElementById('cafe-info').classList.remove('hidden');
+    document.getElementById('cafe-name').textContent = cafe.Name;
+    document.getElementById('cafe-message').textContent = cafe.Message;
+    document.getElementById('cafe-address').textContent = cafe.Address;
+    document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
+    document.getElementById('cafe-hours').textContent = cafe.Hours;
+    document.getElementById('cafe-price').textContent = cafe.Price;
 
-           typeCell.textContent = cafe[`Seating Type ${i}`];
-           totalCell.textContent = cafe[`Seating Count ${i}`];
-           powerCell.textContent = cafe[`Power Count ${i}`];
+    // 비디오 처리
+    var videoContainer = document.getElementById('cafe-video-container');
+    if (videoContainer) {
+        videoContainer.innerHTML = ''; // 기존 내용 초기화
+        if (cafe['Video URL'].includes('youtube.com/shorts/')) {
+            var videoId = cafe['Video URL'].split('youtube.com/shorts/')[1];
+            var iframeElement = document.createElement('iframe');
+            iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
+            iframeElement.width = '100%';
+            iframeElement.height = '100%';
+            iframeElement.frameborder = '0';
+            iframeElement.allowfullscreen = true;
+            videoContainer.appendChild(iframeElement);
+        } else {
+            var videoElement = document.createElement('video');
+            videoElement.controls = true;
+            videoElement.style.width = '100%';
+            var sourceElement = document.createElement('source');
+            sourceElement.src = cafe['Video URL'];
+            sourceElement.type = 'video/mp4';
+            videoElement.appendChild(sourceElement);
+            videoContainer.appendChild(videoElement);
+        }
+    }
 
-           row.appendChild(typeCell);
-           row.appendChild(totalCell);
-           row.appendChild(powerCell);
+    // 쿠폰 처리
+    var couponContainer = document.getElementById('coupon-container');
+    if (couponContainer) {
+        couponContainer.innerHTML = ''; // 컨테이너 내용 초기화
+        couponContainer.style.display = 'none'; // 기본적으로 숨김
 
-           seatingInfo.appendChild(row);
-       }
-   }
+        console.log("Co-work value:", cafe['Co-work']);
 
-   map.setCenter(new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']));
+        if (cafe['Co-work'] === 1 || cafe['Co-work'] === '1') {
+            console.log("Attempting to display coupon for:", cafe.Name);
+            var couponImg = new Image();
+            couponImg.src = `${cafe.Name}쿠폰.png?t=${new Date().getTime()}`; // 캐시 방지
+            couponImg.alt = `${cafe.Name} 쿠폰`;
+            couponImg.style.width = '100%';
+            couponImg.style.marginTop = '10px';
+            
+            couponImg.onload = function() {
+                console.log("Coupon image loaded successfully for:", cafe.Name);
+                couponContainer.appendChild(couponImg);
+                couponContainer.style.display = 'block';
+            };
 
-   document.getElementById('cafe-info').scrollIntoView({ behavior: 'smooth' });
+            couponImg.onerror = function() {
+                console.log("Error loading coupon image for:", cafe.Name);
+                couponContainer.innerHTML = `${cafe.Name}의 쿠폰 이미지를 불러올 수 없습니다.`;
+                couponContainer.style.display = 'block';
+            };
+        } else {
+            console.log("No coupon for:", cafe.Name);
+        }
+    }
+
+    // 좌석 정보 처리
+    var seatingInfo = document.getElementById('seating-info');
+    if (seatingInfo) {
+        seatingInfo.innerHTML = '';
+        for (var i = 1; i <= 5; i++) {
+            if (cafe[`Seating Type ${i}`]) {
+                var row = document.createElement('tr');
+                var typeCell = document.createElement('td');
+                var totalCell = document.createElement('td');
+                var powerCell = document.createElement('td');
+
+                typeCell.textContent = cafe[`Seating Type ${i}`];
+                totalCell.textContent = cafe[`Seating Count ${i}`];
+                powerCell.textContent = cafe[`Power Count ${i}`];
+
+                row.appendChild(typeCell);
+                row.appendChild(totalCell);
+                row.appendChild(powerCell);
+
+                seatingInfo.appendChild(row);
+            }
+        }
+    }
+
+    map.setCenter(new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']));
+
+    document.getElementById('cafe-info').scrollIntoView({ behavior: 'smooth' });
 }
 
 function moveToSchool() {
