@@ -12,6 +12,10 @@ function expandSidebar() {
    document.getElementById('sidebar').classList.add('expanded');
 }
 
+function replaceNewlines(text) {
+    return text.replace(/\\n/g, '<br>');
+}
+
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     var cafeInfo = document.getElementById('cafe-info');
@@ -30,10 +34,12 @@ function showCafeDetails(cafe) {
 
     document.getElementById('cafe-info').classList.remove('hidden');
     document.getElementById('cafe-name').textContent = cafe.Name;
-    document.getElementById('cafe-message').textContent = cafe.Message;
+    // document.getElementById('cafe-message').textContent = cafe.Message;
+    document.getElementById('cafe-message').innerHTML = replaceNewlines(cafe.Message);
     document.getElementById('cafe-address').textContent = cafe.Address;
-    document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
-    document.getElementById('cafe-hours').textContent = cafe.Hours;
+    document.getElementById('cafe-opening-hours').innerHTML = replaceNewlines(cafe['영업 시간']);
+    //document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
+    document.getElementById('cafe-hours').innerHTML = replaceNewlines(cafe.Hours);
     document.getElementById('cafe-price').textContent = cafe.Price;
 
     // 비디오 처리
@@ -168,7 +174,6 @@ function addSchoolMarkers() {
    }
 }
 
-
 function fetchCafesFromJson(url = 'cafe_info.json') {
     fetch(url)
         .then(response => response.json())
@@ -176,42 +181,22 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             cafes = data;
 
             cafes.forEach(function(cafe) {
-                // 마커 생성
-                var marker = new kakao.maps.Marker({
-                    map: map,
-                    position: new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']),
-                });
-
-                // Co-work 여부에 따라 마커 색상 변경
-                if (cafe['Co-work'] === 1 || cafe['Co-work'] === '1') {
-                    marker.setImage(
-                        new kakao.maps.MarkerImage(
-                            'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png',
-                            new kakao.maps.Size(24, 35),
-                            { offset: new kakao.maps.Point(12, 35) }
-                        )
-                    );
-                }
-
-                markers.push(marker);
-
-                // 정보를 표시할 커스텀 오버레이 생성
                 var content = document.createElement('div');
                 content.className = 'cafe-marker-label';
-                content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + cafe.Hours;
+                content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + replaceNewlines(cafe.Hours);
+
+                if (cafe['Co-work'] === 1 || cafe['Co-work'] === '1') {
+                    content.classList.add('co-work');
+                }
 
                 var customOverlay = new kakao.maps.CustomOverlay({
                     map: map,
-                    position: marker.getPosition(),
+                    position: new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']),
                     content: content,
-                    yAnchor: 1.5
+                    yAnchor: 1.1
                 });
 
-                // 클릭 이벤트 추가
-                kakao.maps.event.addListener(marker, 'click', function() {
-                    expandSidebar();
-                    showCafeDetails(cafe);
-                });
+                markers.push(customOverlay);
 
                 content.addEventListener('click', function() {
                     expandSidebar();
