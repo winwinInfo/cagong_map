@@ -168,6 +168,7 @@ function addSchoolMarkers() {
    }
 }
 
+
 function fetchCafesFromJson(url = 'cafe_info.json') {
     fetch(url)
         .then(response => response.json())
@@ -175,35 +176,42 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             cafes = data;
 
             cafes.forEach(function(cafe) {
-                var content = document.createElement('div');
-                content.style.display = 'flex';
-                content.style.flexDirection = 'column';
-                content.style.justifyContent = 'center';
-                content.style.alignItems = 'center';
-                content.style.padding = '5px';
-                content.style.background = 'white';
-                content.style.border = '1px solid black';
-                content.style.borderRadius = '5px';
-                content.style.cursor = 'pointer';
-                content.style.fontFamily = 'Noto Sans KR, sans-serif';
-                content.style.fontSize = '14px';
-                content.innerHTML = '<span style="font-family: Noto Sans KR; font-weight: 900;">' + cafe.Name + '</span>' + cafe.Hours;
-
-                if (cafe['Co-work']===1 || cafe['Co-work'] === '1'){
-                    content.style.background = '#A4D65E';
-                    content.style.color = 'black';
-                } else {
-                    content.style.background = 'white';
-                }
-
-                var marker = new kakao.maps.CustomOverlay({
+                // 마커 생성
+                var marker = new kakao.maps.Marker({
                     map: map,
                     position: new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']),
-                    content: content,
-                    yAnchor: 1
                 });
 
+                // Co-work 여부에 따라 마커 색상 변경
+                if (cafe['Co-work'] === 1 || cafe['Co-work'] === '1') {
+                    marker.setImage(
+                        new kakao.maps.MarkerImage(
+                            'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png',
+                            new kakao.maps.Size(24, 35),
+                            { offset: new kakao.maps.Point(12, 35) }
+                        )
+                    );
+                }
+
                 markers.push(marker);
+
+                // 정보를 표시할 커스텀 오버레이 생성
+                var content = document.createElement('div');
+                content.className = 'cafe-marker-label';
+                content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + cafe.Hours;
+
+                var customOverlay = new kakao.maps.CustomOverlay({
+                    map: map,
+                    position: marker.getPosition(),
+                    content: content,
+                    yAnchor: 1.5
+                });
+
+                // 클릭 이벤트 추가
+                kakao.maps.event.addListener(marker, 'click', function() {
+                    expandSidebar();
+                    showCafeDetails(cafe);
+                });
 
                 content.addEventListener('click', function() {
                     expandSidebar();
