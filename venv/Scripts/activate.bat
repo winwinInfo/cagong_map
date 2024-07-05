@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\박현서\Documents\GitHub\cagong_map\venv
+set VIRTUAL_ENV=C:\GitHub\cagong_map\cagong_map\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

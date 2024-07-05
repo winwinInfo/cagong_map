@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\박현서\Documents\GitHub\cagong_map\venv"
+VIRTUAL_ENV="C:\GitHub\cagong_map\cagong_map\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
