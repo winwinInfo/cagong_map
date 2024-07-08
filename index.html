@@ -91,7 +91,9 @@
     <!--지도랑 container 분리-->
     </div>
     <!-- 지도 영역 -->
-    <div id="map"></div>
+    <div id="map" style="position: relative;">
+        <button id="locate-button" class="map-button">현위치</button>
+    </div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0263a29ce4d7869fc8090d309d2bc371"></script>
     <script src="app.js"></script>
 </body>

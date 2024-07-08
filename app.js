@@ -269,4 +269,132 @@ document.addEventListener("DOMContentLoaded", function() {
 
    // 학교 마커 추가
    addSchoolMarkers();
+
+//////////////////////current location//////////////////////////////////
+
+    let watchId;
+    let isTracking = false;
+
+
+    
+    // 사용자 위치 표시 버튼 생성
+    var locateButton = document.getElementById('locate-button');
+    if(locateButton) {
+        locateButton.addEventListener('click', toggleLocationTracking);
+    } else {
+        console.log("no locate!");
+    }
+
+    function toggleLocationTracking() {
+        if (!isTracking) {
+            startLocationTracking();
+        } else {
+            stopLocationTracking();
+        }
+    }
+
+    function startLocationTracking() {
+        if (navigator.geolocation) {
+            locateButton.textContent = '추적 중지';
+            watchId = navigator.geolocation.watchPosition(displayMarker, handleLocationError, {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            });
+            isTracking = true;
+        } else {
+            console.log("이 브라우저에서는 Geolocation이 지원되지 않습니다.");
+            alert("이 브라우저에서는 위치 서비스가 지원되지 않습니다.");
+        }
+    }
+
+    function stopLocationTracking() {
+        if (watchId) {
+            navigator.geolocation.clearWatch(watchId);
+            watchId = null;
+        }
+        if (window.userLocationMarker) {
+            window.userLocationMarker.setMap(null);
+            window.userLocationMarker = null;
+        }
+        isTracking = false;
+        locateButton.textContent = '현위치';
+    }
+    
+    let errorCount = 0;
+
+    function handleLocationError(error) {
+        errorCount++;
+        let errorMessage;
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                errorMessage = "사용자가 위치 정보 제공을 거부했습니다.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                errorMessage = "위치 정보를 사용할 수 없습니다.";
+                break;
+            case error.TIMEOUT:
+                errorMessage = "위치 정보 요청이 시간 초과되었습니다.";
+                break;
+            case error.UNKNOWN_ERROR:
+                errorMessage = "알 수 없는 오류가 발생했습니다.";
+                break;
+        }        
+        console.warn(`ERROR(${error.code}): ${errorMessage}`);
+        
+        if(errorCount >= 3)
+        {
+            let errorMessage = "위치 추적 중 오류가 발생했습니다."
+            console.warn(errorMessage);
+            alert(errorMessage);
+            stopLocationTracking();
+        }
+    }
+//마커 생성 함수
+    function createCircleMarkerImage(color, size) {
+        var canvas = document.createElement('canvas');
+        var context = canvas.getContext('2d');
+        
+        canvas.width = size;
+        canvas.height = size;
+        
+        context.beginPath();
+        context.arc(size/2, size/2, size/2, 0, 2*Math.PI);
+        context.fillStyle = color;
+        context.fill();
+        
+        return canvas.toDataURL();
+    }
+
+    function displayMarker(position) {
+        console.log("New position:", position.coords.latitude, position.coords.longitude);
+        var lat = position.coords.latitude,
+            lon = position.coords.longitude;
+        
+        var locPosition = new kakao.maps.LatLng(lat, lon);
+
+        // 현위치 마커 이미지 설정
+        var markerSize=16;
+        var markerColor = '#FF0000';
+        var imageSrc = createCircleMarkerImage(markerColor, markerSize);
+        var imageSize = new kakao.maps.Size(markerSize, markerSize);
+        var imageOption = {offset: new kakao.maps.Point(markerSize/2, markerSize/2)};
+        
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
+        // 기존 마커가 있다면 위치만 업데이트
+        if (window.userLocationMarker) {
+            window.userLocationMarker.setPosition(locPosition);
+        } else {
+            // 새 마커 생성
+            window.userLocationMarker = new kakao.maps.Marker({  
+                map: map, 
+                position: locPosition,
+                image: markerImage
+            }); 
+        }
+        map.setCenter(locPosition);      
+    }
+
+    // DOMContentLoaded 이벤트 리스너 종료 괄호
 });
