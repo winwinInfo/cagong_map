@@ -211,12 +211,42 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
 
 document.addEventListener("DOMContentLoaded", function() {
     var container = document.getElementById('map');
+    var defaultPosition = new kakao.maps.LatLng(37.58823, 126.9936);
     var options = {
-        center: new kakao.maps.LatLng(37.58823, 126.9936),
+        center: defaultPosition,
         level: 3
     };
 
     map = new kakao.maps.Map(container, options);
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+    if (navigator.geolocation) {
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+
+            var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+
+            // 지도 중심을 변경합니다
+            map.setCenter(locPosition);
+
+            // 마커를 생성합니다
+            displayMarker(locPosition);
+
+        }, function(error) {
+            // GeoLocation 허용하지 않았거나 지원하지 않는 경우 Default 위치를 중심으로 합니다
+            console.log('Geolocation error: ' + error.message);
+            map.setCenter(defaultPosition);
+        }, {
+            enableHighAccuracy: true,
+            maximumAge: 0,
+            timeout: 5000
+        });
+    } else {
+        // HTML5의 GeoLocation을 사용할 수 없을 때 Default 위치를 중심으로 합니다
+        map.setCenter(defaultPosition);
+    }
+
 
     fetchCafesFromJson();
 
