@@ -5,7 +5,10 @@ var cafes = [];
 var schoolCoordinates = {
    "성균관대": new kakao.maps.LatLng(37.5872, 126.9919),
    "경희대": new kakao.maps.LatLng(37.5955, 127.0526),
-   "한국외대": new kakao.maps.LatLng(37.5972, 127.0590)
+   "한국외대": new kakao.maps.LatLng(37.5972, 127.0590),
+   "연세대": new kakao.maps.LatLng(37.56641, 126.9387),
+   "이화여대": new kakao.maps.LatLng(37.561758, 126.946708),
+   "서강대": new kakao.maps.LatLng(37.550917, 126.941011)
 };
 
 function expandSidebar() {
@@ -13,7 +16,7 @@ function expandSidebar() {
 }
 
 function replaceNewlines(text) {
-    return text.replace(/\\n/g, '<br>');
+    return text? text.replace(/\\n/g, '<br>') : '';
 }
 
 function toggleSidebar() {
