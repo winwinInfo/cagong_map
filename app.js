@@ -281,18 +281,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetchCafesFromJson();
 
-   var xlsxInput = document.createElement('input');
-   xlsxInput.type = 'file';
-   xlsxInput.accept = '.xlsx';
-   xlsxInput.style.display = 'none';
-   document.body.appendChild(xlsxInput);
+//    var xlsxInput = document.createElement('input');
+//    xlsxInput.type = 'file';
+//    xlsxInput.accept = '.xlsx';
+//    xlsxInput.style.display = 'none';
+//    document.body.appendChild(xlsxInput);
 
-   xlsxInput.addEventListener('change', function(e) {
-       var file = e.target.files[0];
-       fetchCafesFromXlsx(file);
-   });
-
-   xlsxInput.click();
+//    xlsxInput.addEventListener('change', function(e) {
+//        var file = e.target.files[0];
+//        fetchCafesFromXlsx(file);
+//    });
+//   xlsxInput.click();
 
    function searchCafes() {
        var query = document.getElementById('search').value.toLowerCase();

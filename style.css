@@ -285,8 +285,10 @@ video {
 /*카페 디테일 - 주소 css*/
 .address-container {
     display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;  /* 절대 위치 지정을 위한 기준점 */
+    padding-right: 80px; /* 버튼 너비 + 여백만큼 오른쪽 패딩 추가 */
   }
   
   .address-container strong {
@@ -295,23 +297,20 @@ video {
   }
   
   #cafe-address {
-    flex-grow: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex: 1 1 auto;
+    white-space: normal;
+    word-break: break-all;
   }
   
   .finder-button {
-    flex-shrink: 0;
-    margin-left: 10px;
+    position: absolute;  /* 절대 위치 지정 */
+    right: 0;            /* 오른쪽에 고정 */
+    top: 0;              /* 위쪽에 고정 */
     padding: 5px 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .finder-button:hover {
-    background-color: #45a049;
+    width: 70px;  /* 버튼의 너비 지정 */
   }
