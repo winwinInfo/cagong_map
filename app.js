@@ -31,6 +31,30 @@ function toggleSidebar() {
     }
 }
 
+////////////길찾기 버튼/////////////
+function startFinding() 
+{
+    console.log('clicked!');
+    var cafeInfo = document.getElementById('cafe-info');
+    if (cafeInfo.classList.contains('hidden')) {
+        alert('먼저 카페를 선택해주세요.');
+        return;
+    }
+
+    var cafeId = cafeInfo.getAttribute('data-cafe-id');
+    if (!cafeId) {
+        alert('카페 정보를 찾을 수 없습니다.');
+        return;
+    }
+
+    // 카카오맵 길찾기 URL 생성
+    var kakaoMapUrl = `https://map.kakao.com/link/to/${cafeId}`;
+
+    // 새 탭에서 카카오맵 길찾기 페이지 열기
+    window.open(kakaoMapUrl, '_blank');
+}
+
+////////////////////////////////////////////////////////////전역scope//////////////////////////
 
 function showCafeDetails(cafe) {
     console.log("showCafeDetails called for:", cafe.Name);
@@ -44,6 +68,9 @@ function showCafeDetails(cafe) {
     //document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
     document.getElementById('cafe-hours').innerHTML = replaceNewlines(cafe.Hours);
     document.getElementById('cafe-price').textContent = cafe.Price;
+
+    // ID를 데이터 속성으로 저장
+    document.getElementById('cafe-info').setAttribute('data-cafe-id', cafe.ID);
 
     // 비디오 처리
     var videoContainer = document.getElementById('cafe-video-container');
@@ -212,6 +239,7 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
         });
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
     var container = document.getElementById('map');
     var defaultPosition = new kakao.maps.LatLng(37.58823, 126.9936);
@@ -303,12 +331,20 @@ document.addEventListener("DOMContentLoaded", function() {
    // 학교 마커 추가
    addSchoolMarkers();
 
+   //길찾기 버튼에 함수 달기
+    var finderButton = document.getElementById('finder');
+    if(finderButton)
+    {
+        finderButton.addEventListener('click', startFinding);
+    }
+
+
+
+
 //////////////////////current location//////////////////////////////////
 
     let watchId;
     let isTracking = false;
-
-
     
     // 사용자 위치 표시 버튼 생성
     var locateButton = document.getElementById('locate-button');

@@ -280,3 +280,38 @@ video {
     color: #333;
 }
 
+
+
+/*카페 디테일 - 주소 css*/
+.address-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+  .address-container strong {
+    flex-shrink: 0;
+    margin-right: 5px;
+  }
+  
+  #cafe-address {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .finder-button {
+    flex-shrink: 0;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .finder-button:hover {
+    background-color: #45a049;
+  }
