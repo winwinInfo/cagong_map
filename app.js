@@ -8,7 +8,7 @@ var schoolCoordinates = {
    "한국외대": new kakao.maps.LatLng(37.5972, 127.0590),
    "연세대": new kakao.maps.LatLng(37.56641, 126.9387),
    "이화여대": new kakao.maps.LatLng(37.561758, 126.946708),
-   "서강대": new kakao.maps.LatLng(37.550917, 126.941011)
+   "서강대": new kakao.maps.LatLng(37.550917, 126.941011),
    "홍대": new kakao.maps.LatLng(37.55074, 126.9255)
 };
 
