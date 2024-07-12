@@ -114,7 +114,19 @@
     </div>
     <!-- 지도 영역 -->
     <div id="map" style="position: relative;">
-        <button id="locate-button" class="map-button">현위치</button>
+        <div class="map-controls">
+            <button id="locate-button" class="map-button">현위치</button>
+            <div id="legend" class="legend">
+                <div class="legend-item">
+                    <div class="legend-color co-work"></div>
+                    <span>제휴 카페</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color"></div>
+                    <span>일반 카페</span>
+                </div>
+            </div>
+        </div>   
     </div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0263a29ce4d7869fc8090d309d2bc371"></script>
     <script src="app.js"></script>
