@@ -8,7 +8,7 @@
     "Hours": "2시간 ",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/jRQfKyqqgP4",
-    "영업 시간": "평일 12:00~22:00\r\\n토 13:00~22:00\r\\n일 13:00~20:00\r\\n*매주 목 정기휴무",
+    "영업 시간": "평일 12:00~22:00\\n토 13:00~22:00\\n일 13:00~20:00\\n*매주 목 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -24,7 +24,7 @@
     "Seating Type 5": "5인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "0",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1054975307.0
   },
   {
@@ -52,7 +52,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1111332307.0
   },
   {
@@ -64,7 +64,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/JO6ohDYM2Tc",
-    "영업 시간": "매일 11:00~21:00\r\\n20:00 라스트오더\r\\n*매주 월 정기휴무",
+    "영업 시간": "매일 11:00~21:00\\n20:00 라스트오더\\n*매주 월 정기휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 7.0,
     "Power Count 1": "5",
@@ -80,7 +80,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1071513207.0
   },
   {
@@ -108,7 +108,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 782133904.0
   },
   {
@@ -120,7 +120,7 @@
     "Hours": "1시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/5Bdg1GOb7pc",
-    "영업 시간": "매일 12:00~24:00\r\\n23:30 라스트오더",
+    "영업 시간": "매일 12:00~24:00\\n23:30 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "3",
@@ -136,7 +136,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1067900892.0
   },
   {
@@ -145,7 +145,7 @@
     "Position (Longitude)": 126.9995,
     "Message": "주말에는 제한이 있지만 평일에는 환영입니다!",
     "Address": "서울 종로구 창경궁로26길 33 1층",
-    "Hours": "평일 무제한\r\\n주말 2시간",
+    "Hours": "평일 무제한\\n주말 2시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/wmcCeudUc1A",
     "영업 시간": "매일 11:00~23:00",
@@ -164,7 +164,7 @@
     "Seating Type 5": "5인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 678589827.0
   },
   {
@@ -173,10 +173,10 @@
     "Position (Longitude)": 126.9996,
     "Message": "한옥 분위기이며, 콘센트가 없으니 참고해주세요!",
     "Address": "서울 종로구 대학로9가길 14 디터틀",
-    "Hours": "2~3시간",
+    "Hours": "2시간~3시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/_irfee1voD8",
-    "영업 시간": "일~월 11:00~22:00\r\\n화~토 11:00~23:00",
+    "영업 시간": "일~월 11:00~22:00\\n화~토 11:00~23:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "1",
@@ -192,7 +192,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1765894316.0
   },
   {
@@ -204,7 +204,7 @@
     "Hours": "2시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/IZId28BfjiE",
-    "영업 시간": "매일 12:00~22:00\r\\n21:30 라스트오더",
+    "영업 시간": "매일 12:00~22:00\\n21:30 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -220,7 +220,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 575297453.0
   },
   {
@@ -248,7 +248,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1223984349.0
   },
   {
@@ -276,7 +276,7 @@
     "Seating Type 5": "6인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "0",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1822481162.0
   },
   {
@@ -288,7 +288,7 @@
     "Hours": "무제한",
     "Price": "3,500원",
     "Video URL": "https://youtube.com/shorts/mdguVic216U",
-    "영업 시간": "일~목 11:00~21:30\r\\n금~토 11:00~22:00",
+    "영업 시간": "일~목 11:00~21:30\\n금~토 11:00~22:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "1",
@@ -304,7 +304,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 26451323.0
   },
   {
@@ -314,9 +314,9 @@
     "Message": "카공 시간에 대한 제한이 없어요! 3층으로 되어있어 공간이 큰 편이라, 카공하기에 좋은 편입니다. ",
     "Address": "서울 종로구 대학로 125 콘크리트 팔레트",
     "Hours": "무제한",
-    "Price": "4,000원",
+    "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/W5I9Ojplw-w",
-    "영업 시간": "일~목 10:00~22:00\r\\n금~토 11:00~24:00",
+    "영업 시간": "일~목 10:00~22:00\\n금~토 11:00~24:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 10.0,
     "Power Count 1": "10",
@@ -332,7 +332,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1430842424.0
   },
   {
@@ -344,7 +344,7 @@
     "Hours": "2시간",
     "Price": "4,300원",
     "Video URL": null,
-    "영업 시간": "월 12:00~18:30\r\\n17:30 라스트오더\r\\n화~토 12:00~21:30\r\\n21:00 라스트오더\r\\n*매주 일 휴무",
+    "영업 시간": "월 12:00~18:30\\n17:30 라스트오더\\n화~토 12:00~21:30\\n21:00 라스트오더\\n*매주 일 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 2.0,
     "Power Count 1": "0",
@@ -360,7 +360,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1769436835.0
   },
   {
@@ -372,7 +372,7 @@
     "Hours": "무제한",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/umZk84uE5Ac",
-    "영업 시간": "매일 11:00~23:00\r\\n21:30 라스트오더",
+    "영업 시간": "매일 11:00~23:00\\n21:30 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 14.0,
     "Power Count 1": "2",
@@ -388,7 +388,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1761099960.0
   },
   {
@@ -400,7 +400,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/QnUMC-jAdLs",
-    "영업 시간": "월~금 12:00~22:00\r\\n토 13:00~22:00\r\\n21:30 라스트오더\r\\n*매주 일 휴무",
+    "영업 시간": "월~금 12:00~22:00\\n토 13:00~22:00\\n21:30 라스트오더\\n*매주 일 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "1",
@@ -416,7 +416,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1937637283.0
   },
   {
@@ -444,7 +444,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 331910577.0
   },
   {
@@ -456,7 +456,7 @@
     "Hours": "무제한",
     "Price": "6,000원",
     "Video URL": "https://youtube.com/shorts/tt5IaSe6mxs",
-    "영업 시간": "평일 11:00~21:00\r\\n주말 11:00~20:00",
+    "영업 시간": "평일 11:00~21:00\\n주말 11:00~20:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "1",
@@ -472,7 +472,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 15419388.0
   },
   {
@@ -484,7 +484,7 @@
     "Hours": "3시간",
     "Price": "3,000원",
     "Video URL": "https://youtube.com/shorts/Vl3EYm1cA0w",
-    "영업 시간": "평일 09:00~20:00\r\\n토~일 12:00~18:00",
+    "영업 시간": "평일 09:00~20:00\\n토~일 12:00~18:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -500,7 +500,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 27305218.0
   },
   {
@@ -528,7 +528,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1415631766.0
   },
   {
@@ -556,7 +556,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1554090984.0
   },
   {
@@ -584,7 +584,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 13333488.0
   },
   {
@@ -596,7 +596,7 @@
     "Hours": "3시간",
     "Price": "4,900원",
     "Video URL": "https://youtube.com/shorts/VEXqtjtW9Tw?feature=share",
-    "영업 시간": "매일 12:00~23:00\r\\n22:45 라스트 오더",
+    "영업 시간": "매일 12:00~23:00\\n22:45 라스트 오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 20.0,
     "Power Count 1": "4",
@@ -612,7 +612,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1793615834.0
   },
   {
@@ -640,7 +640,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 26596600.0
   },
   {
@@ -652,7 +652,7 @@
     "Hours": "4시간",
     "Price": "3,500원",
     "Video URL": "https://youtube.com/shorts/qZOFRC4XOTA",
-    "영업 시간": "월~금, 일 10:30~21:00\r\\n20:30 라스트 오더\r\\n*매주 토요일 휴무",
+    "영업 시간": "월~금, 일 10:30~21:00\\n20:30 라스트 오더\\n*매주 토요일 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -668,7 +668,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 563885533.0
   },
   {
@@ -680,7 +680,7 @@
     "Hours": "무제한",
     "Price": "4,800원",
     "Video URL": "https://youtube.com/shorts/kg7-Z3tFHr4",
-    "영업 시간": "매일 12:00~21:00\r\\n20:30 라스트 오더",
+    "영업 시간": "매일 12:00~21:00\\n20:30 라스트 오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 14.0,
     "Power Count 1": null,
@@ -696,7 +696,7 @@
     "Seating Type 5": "12인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1008989718.0
   },
   {
@@ -724,7 +724,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 16473175.0
   },
   {
@@ -752,7 +752,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 26891288.0
   },
   {
@@ -780,7 +780,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 8258537.0
   },
   {
@@ -808,7 +808,7 @@
     "Seating Type 5": "6인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 25977363.0
   },
   {
@@ -836,7 +836,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 546266064.0
   },
   {
@@ -848,7 +848,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": null,
-    "영업 시간": "일~월 11:00~21:00\r\\n목~토 11:00~21:00\r\\n*20:30 라스트오더\r\\n*화,수 정기휴무\r\\n",
+    "영업 시간": "일~월 11:00~21:00\\n목~토 11:00~21:00\\n*20:30 라스트오더\\n*화,수 정기휴무\\n",
     "Seating Type 1": null,
     "Seating Count 1": null,
     "Power Count 1": null,
@@ -864,7 +864,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1657655162.0
   },
   {
@@ -892,7 +892,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 13015709.0
   },
   {
@@ -904,7 +904,7 @@
     "Hours": "3시간",
     "Price": "4,500원",
     "Video URL": null,
-    "영업 시간": "수~토 9:00~20:00\r\\n*일,월,화 정기휴무",
+    "영업 시간": "수~토 9:00~20:00\\n*일,월,화 정기휴무",
     "Seating Type 1": null,
     "Seating Count 1": null,
     "Power Count 1": null,
@@ -920,7 +920,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 104674039.0
   },
   {
@@ -932,7 +932,7 @@
     "Hours": "3시간",
     "Price": "3,000원",
     "Video URL": "https://youtube.com/shorts/kKee5IeZtjc",
-    "영업 시간": "매일 11:30~17:30\r\\n*20:30 라스트오더\r\\n*일요일은 휴무확인 전화 필요",
+    "영업 시간": "매일 11:30~17:30\\n*20:30 라스트오더\\n*일요일은 휴무확인 전화 필요",
     "Seating Type 1": "1인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "4",
@@ -948,7 +948,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 803230632.0
   },
   {
@@ -976,7 +976,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 25411498.0
   },
   {
@@ -988,7 +988,7 @@
     "Hours": "4시간",
     "Price": "3,500원",
     "Video URL": "https://youtube.com/shorts/Fj_2me-g0xM",
-    "영업 시간": "월~금 8:00~23:00\r\\n토 10:00~18:00\r\\n일 10:00~22:00",
+    "영업 시간": "월~금 8:00~23:00\\n토 10:00~18:00\\n일 10:00~22:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "6",
@@ -1004,7 +1004,7 @@
     "Seating Type 5": "6인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 20610092.0
   },
   {
@@ -1016,7 +1016,7 @@
     "Hours": "3시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/E_mV-K-DYPQ",
-    "영업 시간": "월~금 11:00~22:00\r\\n토~일 12:00~19:00",
+    "영업 시간": "월~금 11:00~22:00\\n토~일 12:00~19:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -1032,7 +1032,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 446241922.0
   },
   {
@@ -1044,7 +1044,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/Qd0h8kXcCrY",
-    "영업 시간": "월~금 12:00~21:30\r\\n토~일 13:00~21:00\r\\n*라스트 오더 20:30/ 포장은 마감까지",
+    "영업 시간": "월~금 12:00~21:30\\n토~일 13:00~21:00\\n*라스트 오더 20:30/ 포장은 마감까지",
     "Seating Type 1": "2인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -1060,7 +1060,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1131068123.0
   },
   {
@@ -1069,10 +1069,10 @@
     "Position (Longitude)": 127.0611194,
     "Message": "만석 시에는 회전을 위해 양해 부탁드려요!",
     "Address": "서울 동대문구 휘경로2길 5-2 2층",
-    "Hours": "5시간\r\\n만석 시 3시간",
+    "Hours": "5시간\\n만석 시 3시간",
     "Price": "4,300원",
     "Video URL": "https://youtube.com/shorts/WdRfnjdqBD4?feature=share",
-    "영업 시간": "월~금 11:00~23:30\r\\n*라스트 오더 23:00\r\\n토~일 11:00~21:30\r\\n*라스트 오더 21:00",
+    "영업 시간": "월~금 11:00~23:30\\n*라스트 오더 23:00\\n토~일 11:00~21:30\\n*라스트 오더 21:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "6",
@@ -1088,7 +1088,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1336670320.0
   },
   {
@@ -1100,7 +1100,7 @@
     "Hours": "무제한",
     "Price": "4,300원",
     "Video URL": "https://youtube.com/shorts/ouFWBI_tPWw",
-    "영업 시간": "월~토 12:00~21:00\r\\n20:00 라스트오더\r\\n*매주 일 휴무",
+    "영업 시간": "월~토 12:00~21:00\\n20:00 라스트오더\\n*매주 일 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 10.0,
     "Power Count 1": "10",
@@ -1116,7 +1116,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2015397398.0
   },
   {
@@ -1144,7 +1144,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1670832729.0
   },
   {
@@ -1156,7 +1156,7 @@
     "Hours": "2시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/noq7bjGbDrw",
-    "영업 시간": "월 11:00~21:00\r\\n화~금 10:00~21:00\r\\n토 11:00~20:00\r\\n*일 정기휴무",
+    "영업 시간": "월 11:00~21:00\\n화~금 10:00~21:00\\n토 11:00~20:00\\n*일 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "2",
@@ -1172,7 +1172,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1146939784.0
   },
   {
@@ -1200,7 +1200,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1691201235.0
   },
   {
@@ -1212,7 +1212,7 @@
     "Hours": "2시간",
     "Price": "4,500원",
     "Video URL": null,
-    "영업 시간": "화~토 11:30~29:00\r\\n*일,월 정기휴무\r\\n*18:50 라스트오더",
+    "영업 시간": "화~토 11:30~29:00\\n*일,월 정기휴무\\n*18:50 라스트오더",
     "Seating Type 1": null,
     "Seating Count 1": null,
     "Power Count 1": null,
@@ -1228,7 +1228,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1782510962.0
   },
   {
@@ -1256,7 +1256,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 20629149.0
   },
   {
@@ -1268,7 +1268,7 @@
     "Hours": "2시간",
     "Price": "2,500원",
     "Video URL": "https://youtube.com/shorts/DHtbuYyY83o?feature=share",
-    "영업 시간": "월~금 09:00~18:00\r\\n토,일 08:00~17:00",
+    "영업 시간": "월~금 09:00~18:00\\n토,일 08:00~17:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "4",
@@ -1284,7 +1284,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 14856265.0
   },
   {
@@ -1296,7 +1296,7 @@
     "Hours": "무제한",
     "Price": "4,300원",
     "Video URL": "https://youtube.com/shorts/CqbPEM-pMWs?feature=share",
-    "영업 시간": "월~토 12:00~21:30\r\\n*일 정기휴무",
+    "영업 시간": "월~토 12:00~21:30\\n*일 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 9.0,
     "Power Count 1": "9",
@@ -1312,7 +1312,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1584942510.0
   },
   {
@@ -1324,7 +1324,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/GIfHsEnPy88",
-    "영업 시간": "매일 10:00~21:00\r\\n*22:30 라스트오더",
+    "영업 시간": "매일 10:00~21:00\\n*22:30 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "1",
@@ -1340,7 +1340,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2103694654.0
   },
   {
@@ -1368,7 +1368,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1181489107.0
   },
   {
@@ -1380,7 +1380,7 @@
     "Hours": "4시간 권장",
     "Price": "3,500원",
     "Video URL": null,
-    "영업 시간": "월~금 10:00~23:00\r\\n토,일 12:00~22:30",
+    "영업 시간": "월~금 10:00~23:00\\n토,일 12:00~22:30",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -1396,7 +1396,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 379678368.0
   },
   {
@@ -1408,7 +1408,7 @@
     "Hours": "2시간 권장",
     "Price": "4,300원",
     "Video URL": "https://youtube.com/shorts/IOK0gTlP3OM",
-    "영업 시간": "월~토 11:00~24:00\r\\n*22:30 라스트오더\r\\n일 11:00~22:00\r\\n*21:30 라스트오더",
+    "영업 시간": "월~토 11:00~24:00\\n*22:30 라스트오더\\n일 11:00~22:00\r\\n*21:30 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 15.0,
     "Power Count 1": "15",
@@ -1424,7 +1424,7 @@
     "Seating Type 5": "다인석",
     "Seating Count 5": 2.0,
     "Power Count 5": "2",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 14723310.0
   },
   {
@@ -1433,10 +1433,10 @@
     "Position (Longitude)": 127.052158,
     "Message": "만석 시에는 2시간 권장 부탁드려요~!",
     "Address": "서울특별시 동대문구 경희대로 5 가동 3층",
-    "Hours": "무제한\r\\n만석 시 2시간",
+    "Hours": "무제한\\n만석 시 2시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/Psg4hz_aGRw",
-    "영업 시간": "월~금 12:30~24:00\r\\n*23:00 라스트오더\r\\n토,일 13:00~23:00\r\\n*22:00 라스트오더",
+    "영업 시간": "월~금 12:30~24:00\\n*23:00 라스트오더\\n토,일 13:00~23:00\\n*22:00 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 1.0,
     "Power Count 1": "1",
@@ -1452,7 +1452,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 12178569.0
   },
   {
@@ -1464,7 +1464,7 @@
     "Hours": "무제한",
     "Price": "4,300원",
     "Video URL": "https://youtube.com/shorts/Gzy7IT5MnIo",
-    "영업 시간": "월~수,금~일 12:00~21:30\r\\n*목 정기휴무",
+    "영업 시간": "월~수,금~일 12:00~21:30\\n*목 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "2",
@@ -1480,7 +1480,7 @@
     "Seating Type 5": "다인석",
     "Seating Count 5": 2.0,
     "Power Count 5": "2",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 8232347.0
   },
   {
@@ -1508,7 +1508,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 444973248.0
   },
   {
@@ -1536,7 +1536,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 180336939.0
   },
   {
@@ -1548,7 +1548,7 @@
     "Hours": "무제한",
     "Price": "3,000원",
     "Video URL": "https://youtube.com/shorts/_SvWwB_5bxE",
-    "영업 시간": "월~금 08:00~22:00\r\\n토,일 11:00~22:00",
+    "영업 시간": "월~금 08:00~22:00\\n토,일 11:00~22:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -1564,7 +1564,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 23612658.0
   },
   {
@@ -1576,7 +1576,7 @@
     "Hours": "6시간 권장",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/1909nY4ihq0",
-    "영업 시간": "월~금 11:00~21:00\r\\n20:30 라스트오더\r\\n일 12:00~19:00\r\\n18:30 라스트오더\r\\n*토 정기휴무",
+    "영업 시간": "월~금 11:00~21:00\\n20:30 라스트오더\\n일 12:00~19:00\\n18:30 라스트오더\\n*토 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "4",
@@ -1592,7 +1592,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2045054314.0
   },
   {
@@ -1601,10 +1601,10 @@
     "Position (Longitude)": 126.9992,
     "Message": "주택을 개조한 카페입니다! 가끔씩 카공여지도 보고 오셨다고 하시면 서비스 드릴게요~!",
     "Address": "서울 종로구 창경궁로33길 12 1층",
-    "Hours": "평일 3시간\r\\n주말 권장 X",
+    "Hours": "평일 3시간\\n주말 권장 X",
     "Price": "5,500원",
     "Video URL": "https://youtube.com/shorts/MX9OxvJJ8pA",
-    "영업 시간": "매일 10:00~21:00\r\\n*20:30 라스트오더",
+    "영업 시간": "매일 10:00~21:00\\n*20:30 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -1620,7 +1620,7 @@
     "Seating Type 5": "다인석",
     "Seating Count 5": 4.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 954260629.0
   },
   {
@@ -1632,7 +1632,7 @@
     "Hours": "3시간 권장",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/5dE-Ja2jvFE",
-    "영업 시간": "매일 11:00~20:00\r\\n*월 정기 휴무",
+    "영업 시간": "매일 11:00~20:00\\n*월 정기 휴무",
     "Seating Type 1": "3인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "1",
@@ -1648,7 +1648,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2021916815.0
   },
   {
@@ -1660,7 +1660,7 @@
     "Hours": "무제한",
     "Price": "3,000원",
     "Video URL": "https://youtube.com/shorts/gUQ1dlHroec",
-    "영업 시간": "매일 08:00~20:00\r\\n*일 정기 휴무",
+    "영업 시간": "매일 08:00~20:00\\n*일 정기 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "3",
@@ -1676,7 +1676,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 922831043.0
   },
   {
@@ -1685,10 +1685,10 @@
     "Position (Longitude)": 126.9973,
     "Message": "분위기 좋아요~",
     "Address": "서울 종로구 성균관로3길 15 1층",
-    "Hours": "무제한\r\\n만석 시 3시간",
+    "Hours": "무제한\\n만석 시 3시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/zNXyShL8nLc",
-    "영업 시간": "매일 12:00~21:00\r\\n20:30 라스트오더\r\\n*화 정기휴무",
+    "영업 시간": "매일 12:00~21:00\\n20:30 라스트오더\\n*화 정기휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "1",
@@ -1704,7 +1704,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 238415703.0
   },
   {
@@ -1716,7 +1716,7 @@
     "Hours": "3시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/oPaGaX--QPQ?feature=share",
-    "영업 시간": "매일 11:30~21:00\r\\n20:30 라스트오더\r\\n*월 정기휴무",
+    "영업 시간": "매일 11:30~21:00\\n20:30 라스트오더\\n*월 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 7.0,
     "Power Count 1": "0",
@@ -1732,7 +1732,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 896346896.0
   },
   {
@@ -1760,7 +1760,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2117692443.0
   },
   {
@@ -1772,7 +1772,7 @@
     "Hours": "2시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/oNahJwEX8q0?feature=share",
-    "영업 시간": "월~토 11:00~20:00\r\\n*일 정기휴무",
+    "영업 시간": "월~토 11:00~20:00\\n*일 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "1",
@@ -1788,7 +1788,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 284136496.0
   },
   {
@@ -1800,7 +1800,7 @@
     "Hours": "2시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/okTIDHDaMgU?feature=share",
-    "영업 시간": "월~금 11:00~21:00\r\\n토,일 12:00~22:00",
+    "영업 시간": "월~금 11:00~21:00\\n토,일 12:00~22:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "0",
@@ -1816,7 +1816,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1741241129.0
   },
   {
@@ -1825,7 +1825,7 @@
     "Position (Longitude)": 127.0000574,
     "Message": "X",
     "Address": "서울 종로구 대학로11길 38-6 1층",
-    "Hours": "평일 무제한\r\\n주말 권장 X",
+    "Hours": "평일 무제한\\n주말 권장 X",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/TJZfebcc4fE?feature=share",
     "영업 시간": "월~토 12:00~22:00\r\\n21:00 라스트 오더\r\\n*일 정기휴무",
@@ -1844,7 +1844,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1882572550.0
   },
   {
@@ -1872,7 +1872,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 776669052.0
   },
   {
@@ -1900,7 +1900,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2121626323.0
   },
   {
@@ -1909,7 +1909,7 @@
     "Position (Longitude)": 127.0048051,
     "Message": "X",
     "Address": "서울 종로구 동숭2길 9",
-    "Hours": "평일 무제한\r\\n주말 웨이팅 시 권장 X",
+    "Hours": "평일 무제한\\n주말 웨이팅 시 권장 X",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/BVygtIqOuWg?feature=share",
     "영업 시간": "월~목 12:00~21:00\r\\n금~일 12:00~22:00\r\\n월~목 20:30 라스트오더 \r\\n토, 일 21:30 라스트오더",
@@ -1928,7 +1928,7 @@
     "Seating Type 5": "8인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "있음(사람 너무 많아 파악 X)",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1670739315.0
   },
   {
@@ -1956,7 +1956,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1393818545.0
   },
   {
@@ -1984,7 +1984,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 66494861.0
   },
   {
@@ -2012,7 +2012,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 8005713.0
   },
   {
@@ -2040,7 +2040,7 @@
     "Seating Type 5": "5인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1011256721.0
   },
   {
@@ -2052,7 +2052,7 @@
     "Hours": "3~4시간",
     "Price": "4,800원",
     "Video URL": "https://youtube.com/shorts/zvuqUCM19Yo",
-    "영업 시간": "월~금 07:00~21:00\r\\n토 11:00~21:00\r\\n* 20:30 라스트오더\r\\n* 일 정기휴무",
+    "영업 시간": "월~금 07:00~21:00\\n토 11:00~21:00\\n* 20:30 라스트오더\\n* 일 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -2068,7 +2068,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1840022051.0
   },
   {
@@ -2080,7 +2080,7 @@
     "Hours": "3시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/Z0zdh-T3pM4",
-    "영업 시간": "매일 12:00~23:00\r\\n* 설명절 정상영업",
+    "영업 시간": "매일 12:00~23:00\\n* 설명절 정상영업",
     "Seating Type 1": "1인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "0",
@@ -2096,7 +2096,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 124990348.0
   },
   {
@@ -2108,7 +2108,7 @@
     "Hours": "무제한",
     "Price": "4,100원",
     "Video URL": "https://youtube.com/shorts/ZzP4nOIe2PQ",
-    "영업 시간": "매일 10:30~23:00\r\\n* 22:00 라스트오더",
+    "영업 시간": "매일 10:30~23:00\\n* 22:00 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "8",
@@ -2124,7 +2124,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 693248561.0
   },
   {
@@ -2136,7 +2136,7 @@
     "Hours": "무제한",
     "Price": "4,600원",
     "Video URL": "https://youtube.com/shorts/xKQMCL0z8ys",
-    "영업 시간": "월~토 09:00~22:10\r\\n* 22:00 라스트오더\r\\n일 10:00~22:00\r\\n* 21:50 라스트오더",
+    "영업 시간": "월~토 09:00~22:10\\n* 22:00 라스트오더\\n일 10:00~22:00\\n* 21:50 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 2.0,
     "Power Count 1": "0",
@@ -2152,7 +2152,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1297998927.0
   },
   {
@@ -2164,7 +2164,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/z8uYfiTwjNE",
-    "영업 시간": "매일 12:00~22:00\r\\n* 21:00 라스트오더",
+    "영업 시간": "매일 12:00~22:00\\n* 21:00 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 2.0,
     "Power Count 1": "2",
@@ -2180,7 +2180,7 @@
     "Seating Type 5": "6인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 17153633.0
   },
   {
@@ -2192,7 +2192,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/4YOlmlqPTWY",
-    "영업 시간": "월~금 07:00~21:00\r\\n토 10:00~20:30\r\\n일 11:00~20:30",
+    "영업 시간": "월~금 07:00~21:00\\n토 10:00~20:30\\n일 11:00~20:30",
     "Seating Type 1": "2인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -2208,7 +2208,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 641595686.0
   },
   {
@@ -2220,7 +2220,7 @@
     "Hours": "무제한",
     "Price": "4,200원",
     "Video URL": "https://youtube.com/shorts/0WBUJe6DzWo",
-    "영업 시간": "매일 09:00~22:00\r\\n* 21:30 라스트오더",
+    "영업 시간": "매일 09:00~22:00\\n* 21:30 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 13.0,
     "Power Count 1": "8",
@@ -2236,7 +2236,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 773494931.0
   },
   {
@@ -2248,7 +2248,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/vPnze-voy0c?feature=share",
-    "영업 시간": "화~토 12:00~21:00\r\\n*20:00 라스트오더\r\\n일, 월 12:00~19:00\r\\n*18:00 라스트오더",
+    "영업 시간": "화~토 12:00~21:00\\n*20:00 라스트오더\\n일, 월 12:00~19:00\\n*18:00 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 5.0,
     "Power Count 1": "3",
@@ -2264,7 +2264,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 177773556.0
   },
   {
@@ -2276,7 +2276,7 @@
     "Hours": "2시간",
     "Price": "3,500원",
     "Video URL": "https://youtube.com/shorts/57mIfM_0kXQ?feature=share",
-    "영업 시간": "월~토 10:00~22:00\r\\n*21:00 라스트오더\r\\n일 09:00~18:00\r\\n*17:00 라스트오더",
+    "영업 시간": "월~토 10:00~22:00\\n*21:00 라스트오더\\n일 09:00~18:00\\n*17:00 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "1",
@@ -2292,11 +2292,11 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 21414115.0
   },
   {
-    "Name": "스페이스",
+    "Name": "스페이스커피",
     "Position (Latitude)": 37.559207,
     "Position (Longitude)": 126.938296,
     "Message": "카공 권장합니다.",
@@ -2304,7 +2304,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/atnYIl7FzMw?feature=share",
-    "영업 시간": "매일 12:00~22:00\r\\n* 설, 추석 당일 휴무",
+    "영업 시간": "매일 12:00~22:00\\n* 설, 추석 당일 휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 26.0,
     "Power Count 1": "23",
@@ -2320,7 +2320,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1006828653.0
   },
   {
@@ -2348,7 +2348,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 15718891.0
   },
   {
@@ -2360,7 +2360,7 @@
     "Hours": "2시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/s4gFi28g754?feature=share",
-    "영업 시간": "화~토 12:00~21:00\r\\n*20:15 라스트오더\r\\n일 12:00~20:30\r\\n*19:45 라스트오더\r\\n*월 정기휴무",
+    "영업 시간": "화~토 12:00~21:00\\n*20:15 라스트오더\\n일 12:00~20:30\\n*19:45 라스트오더\\n*월 정기휴무",
     "Seating Type 1": "4인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "0",
@@ -2376,7 +2376,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1701776676.0
   },
   {
@@ -2404,7 +2404,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1256237691.0
   },
   {
@@ -2416,7 +2416,7 @@
     "Hours": "2시간",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/kMo1aF0iIqc?feature=share",
-    "영업 시간": "매일 10:30~22:30\r\\n*22:00 라스트오더\r\\n*추석 당일, 설날 휴무",
+    "영업 시간": "매일 10:30~22:30\\n*22:00 라스트오더\\n*추석 당일, 설날 휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "2",
@@ -2432,7 +2432,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1825910645.0
   },
   {
@@ -2444,7 +2444,7 @@
     "Hours": "2시간",
     "Price": "5,500원",
     "Video URL": "https://youtube.com/shorts/dDLrU4H7NRc?feature=share",
-    "영업 시간": "화~금 14:00~22:30\r\\n토, 일 12:00~22:30\r\\n*월 정기휴무",
+    "영업 시간": "화~금 14:00~22:30\\n토, 일 12:00~22:30\\n*월 정기휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "0",
@@ -2460,7 +2460,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 12591155.0
   },
   {
@@ -2472,7 +2472,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/Uf5Rrfhl98k?feature=share",
-    "영업 시간": "매일 09:00~21:40\r\\n* 21:10 라스트오더",
+    "영업 시간": "매일 09:00~21:40\\n* 21:10 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 8.0,
     "Power Count 1": "2",
@@ -2488,7 +2488,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 447972484.0
   },
   {
@@ -2500,7 +2500,7 @@
     "Hours": "3시간",
     "Price": "5,500원",
     "Video URL": "https://youtube.com/shorts/U0y5E8JRAKY?feature=share",
-    "영업 시간": "매일 12:00~22:00\r\\n* 설, 추석 당일 휴무",
+    "영업 시간": "매일 12:00~22:00\\n* 설, 추석 당일 휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 2.0,
     "Power Count 1": "0",
@@ -2516,7 +2516,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 17358576.0
   },
   {
@@ -2544,7 +2544,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2020240735.0
   },
   {
@@ -2556,7 +2556,7 @@
     "Hours": "무제한",
     "Price": "5,500원",
     "Video URL": "https://youtube.com/shorts/6CITX2iahqg?feature=share",
-    "영업 시간": "월~토 11:00~23:00\r\\n일 13:00~23:00",
+    "영업 시간": "월~토 11:00~23:00\\n일 13:00~23:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "0",
@@ -2572,7 +2572,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 8122805.0
   },
   {
@@ -2584,7 +2584,7 @@
     "Hours": "4시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/nmcV-ihdf2E?feature=share",
-    "영업 시간": "11:00~23:00\r\\n* 22:30 라스트오더",
+    "영업 시간": "11:00~23:00\\n* 22:30 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 9.0,
     "Power Count 1": "5",
@@ -2600,7 +2600,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 505994572.0
   },
   {
@@ -2612,7 +2612,7 @@
     "Hours": "무제한",
     "Price": "5,500원",
     "Video URL": "https://youtube.com/shorts/Jg9k-chVrIM?feature=share",
-    "영업 시간": "24시간 연중무휴\r\\n*06:00~09:00 브레이크타임",
+    "영업 시간": "24시간 연중무휴\\n*06:00~09:00 브레이크타임",
     "Seating Type 1": "1인석",
     "Seating Count 1": 13.0,
     "Power Count 1": "13",
@@ -2628,7 +2628,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1430301098.0
   },
   {
@@ -2656,7 +2656,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 20526285.0
   },
   {
@@ -2684,7 +2684,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1692202286.0
   },
   {
@@ -2696,7 +2696,7 @@
     "Hours": "3시간",
     "Price": "3,500원",
     "Video URL": "https://youtube.com/shorts/BDYHYrqxeZ4",
-    "영업 시간": "매일 11:00~21:00\r\\n*일 정기휴무",
+    "영업 시간": "매일 11:00~21:00\\n*일 정기휴무",
     "Seating Type 1": "4인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -2712,7 +2712,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 755332055.0
   },
   {
@@ -2724,7 +2724,7 @@
     "Hours": "무제한",
     "Price": "3,800원",
     "Video URL": "https://youtube.com/shorts/gcebindhBZs",
-    "영업 시간": "월~토 11:00~20:00\r\\n*일 정기휴무",
+    "영업 시간": "월~토 11:00~20:00\\n*일 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 5.0,
     "Power Count 1": "4",
@@ -2740,7 +2740,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 185431053.0
   },
   {
@@ -2752,7 +2752,7 @@
     "Hours": "무제한",
     "Price": "3,500워",
     "Video URL": "https://youtube.com/shorts/yCAunR2gCss",
-    "영업 시간": "일~월 10:00~21:00\r\\n*토 정기휴무",
+    "영업 시간": "일~월 10:00~21:00\\n*토 정기휴무",
     "Seating Type 1": "1인석",
     "Seating Count 1": 10.0,
     "Power Count 1": "3",
@@ -2768,7 +2768,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 128666241.0
   },
   {
@@ -2780,7 +2780,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/q92hloZVLgI",
-    "영업 시간": "월~금 12:00~22:00\r\\n토,일 13:00~22:00\r\\n*평일 21:00 수플레 라스트오더\r\\n*주말 20:30 수플레 라스트오더",
+    "영업 시간": "월~금 12:00~22:00\\n토,일 13:00~22:00\\n*평일 21:00 수플레 라스트오더\\n*주말 20:30 수플레 라스트오더",
     "Seating Type 1": "2인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "1",
@@ -2796,7 +2796,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 2093688428.0
   },
   {
@@ -2824,7 +2824,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 184885786.0
   },
   {
@@ -2836,7 +2836,7 @@
     "Hours": "무제한",
     "Price": "2,000원",
     "Video URL": "https://youtube.com/shorts/ZnfXX2m1YcE",
-    "영업 시간": "월~금 11:00~23:00\r\\n토 11~21:00\r\\n*일 정기휴무",
+    "영업 시간": "월~금 11:00~23:00\\n토 11~21:00\\n*일 정기휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -2852,7 +2852,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 637816851.0
   },
   {
@@ -2864,7 +2864,7 @@
     "Hours": "4시간 권장",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/RxUkx8nSPYk",
-    "영업 시간": "월~금 11:00~22:00\r\\n토,일 12:30~20:00",
+    "영업 시간": "월~금 11:00~22:00\\n토,일 12:30~20:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 4.0,
     "Power Count 1": "4",
@@ -2880,7 +2880,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": null
   },
   {
@@ -2892,7 +2892,7 @@
     "Hours": "3시간 권장",
     "Price": "4,800원",
     "Video URL": null,
-    "영업 시간": "화~금 12:00~22:00\r\\n토,일 12:30~22:00",
+    "영업 시간": "화~금 12:00~22:00\\n토,일 12:30~22:00",
     "Seating Type 1": "2인석",
     "Seating Count 1": 6.0,
     "Power Count 1": "6",
@@ -2908,7 +2908,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 0,
+    "Co-work": 0.0,
     "ID": 1464245235.0
   },
   {
@@ -2920,7 +2920,7 @@
     "Hours": "5시간",
     "Price": "4,800원",
     "Video URL": "https://youtube.com/shorts/oV4kthuSZIo",
-    "영업 시간": "월~금 13:00~23:30\r\\n토, 일 11:00~23:30\r\\n* 22:30 라스트오더",
+    "영업 시간": "월~금 13:00~23:30\\n토, 일 11:00~23:30\\n* 22:30 라스트오더",
     "Seating Type 1": "1인석",
     "Seating Count 1": 10.0,
     "Power Count 1": "10",
@@ -2936,7 +2936,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 405087913.0
   },
   {
@@ -2948,7 +2948,7 @@
     "Hours": "무제한",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/lZU3jmAH-oA",
-    "영업 시간": "월~금 12:00~22:00\r\\n토,일 11:00~22:00",
+    "영업 시간": "월~금 12:00~22:00\\n토,일 11:00~22:00",
     "Seating Type 1": "1인석",
     "Seating Count 1": 10.0,
     "Power Count 1": "10",
@@ -2964,7 +2964,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": null
   },
   {
@@ -2992,7 +2992,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 1785907612.0
   },
   {
@@ -3004,7 +3004,7 @@
     "Hours": "무제한",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/XRLSIKzPhH4",
-    "영업 시간": "월~금 11:30~21:00\r\\n토~일, 공휴일 13:00~21:00\r\\n*재료소진시 마감",
+    "영업 시간": "월~금 11:30~21:00\\n토~일, 공휴일 13:00~21:00\\n*재료소진시 마감",
     "Seating Type 1": "1인석",
     "Seating Count 1": 1.0,
     "Power Count 1": "0",
@@ -3020,7 +3020,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 306597800.0
   },
   {
@@ -3029,7 +3029,7 @@
     "Position (Longitude)": 126.998,
     "Message": "눈치주지 않습니다!",
     "Address": "서울 종로구 창경궁로 231 2층 일월일일",
-    "Hours": "무제한\r\\n만석 시 3시간",
+    "Hours": "무제한\\n만석 시 3시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/418pw2V1tPs",
     "영업 시간": "매일 12:00~21:0",
@@ -3048,7 +3048,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 1877004477.0
   },
   {
@@ -3057,10 +3057,10 @@
     "Position (Longitude)": 126.9977,
     "Message": "성대 학생들 환영입니다! 콘센트 더 필요하시면 마련해드려요!",
     "Address": "서울 종로구 창경궁로 227 1층",
-    "Hours": "무제한 \r\\n주말 권장 X",
+    "Hours": "무제한 \\n주말 권장 X",
     "Price": "4,500원",
     "Video URL": "https://youtube.com/shorts/wZgqsvb_AuM",
-    "영업 시간": "화~금 10:30~20:30\r\\n토~일 10:30~21:30\r\\n*화 정기휴무",
+    "영업 시간": "화~금 10:30~20:30\\n토~일 10:30~21:30\\n*화 정기휴무",
     "Seating Type 1": "2인석",
     "Seating Count 1": 3.0,
     "Power Count 1": "0",
@@ -3076,7 +3076,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 1249967276.0
   },
   {
@@ -3085,7 +3085,7 @@
     "Position (Longitude)": 126.9985058,
     "Message": "가게 사정상 금,토,일 운영하니 이용에 참고 부탁드립니다.",
     "Address": "서울 종로구 창경궁로 240-37 1층",
-    "Hours": "2~3시간",
+    "Hours": "2시간~3시간",
     "Price": "5,000원",
     "Video URL": "https://youtube.com/shorts/6m7XXgI501c?feature=share",
     "영업 시간": "금토일 11:00~21:00\r\\n금 19:30 라스트오더\r\\n토일20:30 라스트오더",
@@ -3104,7 +3104,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 118212165.0
   },
   {
@@ -3132,7 +3132,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 925051020.0
   },
   {
@@ -3141,7 +3141,7 @@
     "Position (Longitude)": 127.0005961,
     "Message": "마감시간이 유동적이니 이용에 참고 부탁드립니다.",
     "Address": "서울 종로구 대학로9길 22-5 2층 하루온도 혜화",
-    "Hours": "2~3시간",
+    "Hours": "2시간~3시간",
     "Price": "4,000원",
     "Video URL": "https://youtube.com/shorts/GZre0vy-7dQ?feature=share",
     "영업 시간": "월~금 11:00~20:00\r\\n토, 일 12:00~20:00\r\\n*재료 소진 시 조기마감",
@@ -3160,7 +3160,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 302628769.0
   },
   {
@@ -3188,7 +3188,7 @@
     "Seating Type 5": null,
     "Seating Count 5": null,
     "Power Count 5": null,
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 1659028835.0
   },
   {
@@ -3216,7 +3216,35 @@
     "Seating Type 5": "12인석",
     "Seating Count 5": 1.0,
     "Power Count 5": "1",
-    "Co-work": 1,
+    "Co-work": 1.0,
     "ID": 1014575631.0
+  },
+  {
+    "Name": "계절의 목소리",
+    "Position (Latitude)": 37.5578539,
+    "Position (Longitude)": 126.9442773,
+    "Message": "조용하고, 카공하기에 좋은 분위기이지만, 평일 저녁 및 주말의 경우, 대관 일정으로 인해 홀 사용이 어려울 수 있어요!",
+    "Address": "서울 서대문구 이화여대3길 27 2층",
+    "Hours": "무제한",
+    "Price": "3,800원",
+    "Video URL": "https://youtube.com/shorts/KBLb0KhZM_c",
+    "영업 시간": "월~금 10:00~22:00\\n토~일 11:00~21:00\\n*라스트오더 영업시간 10분 전까지",
+    "Seating Type 1": "1인석",
+    "Seating Count 1": 9.0,
+    "Power Count 1": "6",
+    "Seating Type 2": "2인석",
+    "Seating Count 2": 4.0,
+    "Power Count 2": "0",
+    "Seating Type 3": "4인석",
+    "Seating Count 3": 4.0,
+    "Power Count 3": "4",
+    "Seating Type 4": "6인석",
+    "Seating Count 4": 1.0,
+    "Power Count 4": "2",
+    "Seating Type 5": null,
+    "Seating Count 5": null,
+    "Power Count 5": null,
+    "Co-work": null,
+    "ID": 1632596295.0
   }
 ]
