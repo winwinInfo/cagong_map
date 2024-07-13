@@ -246,14 +246,13 @@ function toggleFilterPopup() {
 
 function applyFilter() {
     var selectedHours = document.getElementById('hours-filter').value;
-    var minPrice = parseInt(document.getElementById('price-min').value) || 0;
     var maxPrice = parseInt(document.getElementById('price-max').value) || Infinity;
     var minPowerSeats = parseInt(document.getElementById('power-seats').value) || 0;
 
     filteredCafes = cafes.filter(function(cafe) {
-        var hoursMatch = selectedHours === 'all' || cafe.Hours.includes(selectedHours);
+        var hoursMatch = selectedHours === 'all' || checkHours(cafe.Hours, selectedHours);
         var cafePrice = parseInt(cafe.Price.replace(/[^0-9]/g, ''));
-        var priceMatch = cafePrice >= minPrice && cafePrice <= maxPrice;
+        var priceMatch = cafePrice <= maxPrice;
         var powerSeatsMatch = calculateTotalPowerSeats(cafe) >= minPowerSeats;
         
         return hoursMatch && priceMatch && powerSeatsMatch;
@@ -261,6 +260,21 @@ function applyFilter() {
 
     updateMarkers();
     toggleFilterPopup();
+}
+function checkHours(cafeHours, selectedHours) {
+    if (selectedHours === 'unlimited') {
+        return cafeHours.toLowerCase().includes('무제한');
+    }
+    
+    var hours = parseInt(selectedHours);
+    var cafeHoursNum = parseInt(cafeHours) || 0;
+    
+    if (isNaN(cafeHoursNum)) {
+        // 카페 시간이 숫자가 아닌 경우 (예: "무제한")
+        return cafeHours.toLowerCase().includes('무제한');
+    }
+    
+    return cafeHoursNum >= hours;
 }
 
 function parsePrice(priceString) {
