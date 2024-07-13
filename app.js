@@ -239,7 +239,56 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             console.error('Error fetching cafe data from JSON:', error);
         });
 }
+function toggleFilterPopup() {
+    var popup = document.getElementById('filter-popup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
 
+function applyFilter() {
+    var selectedHours = document.getElementById('hours-filter').value;
+    var minPrice = parseInt(document.getElementById('price-min').value) || 0;
+    var maxPrice = parseInt(document.getElementById('price-max').value) || Infinity;
+    var minPowerSeats = parseInt(document.getElementById('power-seats').value) || 0;
+
+    filteredCafes = cafes.filter(function(cafe) {
+        var hoursMatch = selectedHours === 'all' || cafe.Hours.includes(selectedHours);
+        var cafePrice = parseInt(cafe.Price.replace(/[^0-9]/g, ''));
+        var priceMatch = cafePrice >= minPrice && cafePrice <= maxPrice;
+        var powerSeatsMatch = calculateTotalPowerSeats(cafe) >= minPowerSeats;
+        
+        return hoursMatch && priceMatch && powerSeatsMatch;
+    });
+
+    updateMarkers();
+    toggleFilterPopup();
+}
+
+function parsePrice(priceString) {
+    return parseInt(priceString.replace(/[^0-9]/g, '')) || 0;
+}
+
+function calculateTotalPowerSeats(cafe) {
+    var total = 0;
+    for (var i = 1; i <= 5; i++) {
+        if (cafe[`Power Count ${i}`]) {
+            total += parseInt(cafe[`Power Count ${i}`]);
+        }
+    }
+    return total;
+}
+
+function updateMarkers() {
+    markers.forEach(function(marker) {
+        marker.setMap(null);
+    });
+
+    filteredCafes.forEach(function(cafe) {
+        var index = cafes.indexOf(cafe);
+        if (index !== -1) {
+            markers[index].setMap(map);
+        }
+    });
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var container = document.getElementById('map');
@@ -249,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
         level: 3
     };
 
+    document.getElementById('apply-filter').addEventListener('click', applyFilter);
     map = new kakao.maps.Map(container, options);
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
     if (navigator.geolocation) {
