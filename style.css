@@ -66,7 +66,7 @@ body, html {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-100%, -50%);
+    transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -101,13 +101,13 @@ body, html {
 #apply-filter {
     background-color: #4e301b;
     color: white;
-    float: center; 
+    float: right; 
 }
 
 #close-filter {
     background-color: rgba(0,0,0,0.3);
     color: white;
-    float: right; 
+    float: left; 
 }
 #cafe-video-container {
     width: 100%;

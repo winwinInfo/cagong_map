@@ -262,7 +262,7 @@ function applyFilter() {
     toggleFilterPopup();
 }
 function checkHours(cafeHours, selectedHours) {
-    if (selectedHours === 'unlimited') {
+    if (selectedHours === '무제한') {
         return cafeHours.toLowerCase().includes('무제한');
     }
     
