@@ -74,7 +74,10 @@
                     <span class="material-symbols-outlined">filter_alt</span>
                 </button>
             </div>
-            
+
+                <!-- 현재 적용 중인 필터 표시 -->
+            <div id = "active-filters"></div>
+
             <!-- 필터 팝업 -->
             <div id="filter-popup" class="filter-popup">
                 <h3>필터 설정</h3>
@@ -93,7 +96,7 @@
                 </div>
                 <div class="filter-category">
                     <label for="price-min">아메리카노 최대 가격:</label>
-                    <input type="number" id="price-max" placeholder="최대 가격" min="0">
+                    <input type="number" id="price-max" placeholder="최대 가격" min="0" step="100">
                 </div>
                 <div class="filter-category">
                     <label for="power-seats">콘센트 사용 가능 좌석 수 (이상):</label>
@@ -144,6 +147,7 @@
             </div>
     <!--지도랑 container 분리-->
     </div>
+
     <!-- 지도 영역 -->
     <div id="map" style="position: relative;">
         <div class="map-controls">

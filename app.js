@@ -21,16 +21,43 @@ function replaceNewlines(text) {
 }
 
 function toggleSidebar() {
+    // var sidebar = document.getElementById('sidebar');
+    // var cafeInfo = document.getElementById('cafe-info');
+
+    // if (cafeInfo.classList.contains('hidden')) {
+    //     sidebar.classList.toggle('expanded');
+    // } else {
+    //     cafeInfo.classList.add('hidden');
+    //     sidebar.classList.remove('expanded');
+    // }
     var sidebar = document.getElementById('sidebar');
+    var activeFilters = document.getElementById('active-filters');
     var cafeInfo = document.getElementById('cafe-info');
 
     if (cafeInfo.classList.contains('hidden')) {
         sidebar.classList.toggle('expanded');
+        if (sidebar.classList.contains('expanded')) {
+            activeFilters.style.top = sidebar.offsetHeight + 'px';
+        } else {
+            activeFilters.style.top = '174px';
+        }
     } else {
         cafeInfo.classList.add('hidden');
         sidebar.classList.remove('expanded');
+        activeFilters.style.top = '174px';
     }
 }
+// 화면 크기 변경 시 필터 위치 조정
+window.addEventListener('resize', function() {
+    var sidebar = document.getElementById('sidebar');
+    var activeFilters = document.getElementById('active-filters');
+    if (window.innerWidth <= 768) {
+        activeFilters.style.top = sidebar.offsetHeight + 'px';
+    } else {
+        activeFilters.style.top = sidebar.classList.contains('expanded') ? sidebar.offsetHeight + 'px' : '174px';
+    }
+});
+
 
 ////////////길찾기 버튼/////////////
 function startFinding() 
@@ -55,7 +82,7 @@ function startFinding()
     window.open(kakaoMapUrl, '_blank');
 }
 
-////////////////////////////////////////////////////////////전역scope//////////////////////////
+////////////////////////전역scope////////////////////
 
 function showCafeDetails(cafe) {
     console.log("showCafeDetails called for:", cafe.Name);
@@ -239,16 +266,33 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             console.error('Error fetching cafe data from JSON:', error);
         });
 }
+
+
+//필터
 function toggleFilterPopup() {
     var popup = document.getElementById('filter-popup');
     popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
 }
 
+// 현재 활성화된 필터를 저장하는 객체
+let activeFilters = {};
+
+// 필터를 적용하는 함수
 function applyFilter() {
+    // 사용자가 선택한 필터 값들을 가져옵니다
     var selectedHours = document.getElementById('hours-filter').value;
     var maxPrice = parseInt(document.getElementById('price-max').value) || Infinity;
     var minPowerSeats = parseInt(document.getElementById('power-seats').value) || 0;
 
+    // 활성화된 필터를 객체에 저장합니다
+    // 'all'이나 기본값인 경우 null로 설정하여 필터가 적용되지 않았음을 나타냅니다
+    activeFilters = {
+        hours: selectedHours !== 'all' ? selectedHours : null,
+        price: maxPrice !== Infinity ? maxPrice : null,
+        powerSeats: minPowerSeats !== 0 ? minPowerSeats : null
+    };
+
+    // 필터 조건에 맞는 카페만 선별합니다
     filteredCafes = cafes.filter(function(cafe) {
         var hoursMatch = selectedHours === 'all' || checkHours(cafe.Hours, selectedHours);
         var cafePrice = parseInt(cafe.Price.replace(/[^0-9]/g, ''));
@@ -258,20 +302,102 @@ function applyFilter() {
         return hoursMatch && priceMatch && powerSeatsMatch;
     });
 
+    // 필터링된 결과에 따라 지도의 마커를 업데이트합니다
     updateMarkers();
+    // 활성화된 필터를 화면에 표시합니다
+    updateActiveFilters();
+    // 필터 팝업을 닫습니다
     toggleFilterPopup();
 }
+
+// 활성화된 필터를 화면에 표시하는 함수
+function updateActiveFilters() {
+    const filterContainer = document.getElementById('active-filters');
+    // 기존에 표시된 필터를 모두 제거합니다
+    filterContainer.innerHTML = '';
+    let hasFilters = false;
+
+    // 각 활성화된 필터에 대해 태그를 생성하고 추가합니다
+    Object.entries(activeFilters).forEach(([key, value]) => {
+        if (value) {
+            hasFilters = true;
+            const tag = document.createElement('div');
+            tag.className = 'filter-tag';
+            tag.innerHTML = `
+                ${getFilterLabel(key, value)}
+                <button onclick="removeFilter('${key}')">&times;</button>
+            `;
+            filterContainer.appendChild(tag);
+        }
+    });
+
+    if(hasFilters){
+        filterContainer.classList.add('has-filters');
+    }
+    else {
+        filterContainer.classList.remove('has-filter');
+    }
+}
+
+// 필터 라벨을 생성하는 함수
+function getFilterLabel(key, value) {
+    switch(key) {
+        case 'hours':
+            return `이용시간: ${value} 이상`;
+        case 'price':
+            return `가격: ${value}원 이하`;
+        case 'powerSeats':
+            return `콘센트: ${value}개 이상`;
+        default:
+            return '';
+    }
+}
+
+// 특정 필터를 제거하는 함수
+function removeFilter(key) {
+    // 해당 필터를 비활성화 상태로 설정합니다
+    activeFilters[key] = null;
+    
+    // 해당 필터의 입력 필드를 초기화합니다
+    switch(key) {
+        case 'hours':
+            document.getElementById('hours-filter').value = 'all';
+            break;
+        case 'price':
+            document.getElementById('price-max').value = '';
+            break;
+        case 'powerSeats':
+            document.getElementById('power-seats').value = '';
+            break;
+    }
+
+    // 필터를 다시 적용합니다
+    applyFilter();
+}
+
+// 페이지 로드 시 필터 적용 버튼에 이벤트 리스너를 추가합니다
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('apply-filter').addEventListener('click', applyFilter);
+});
+
+
 function checkHours(cafeHours, selectedHours) {
+    // '무제한' 카페는 항상 true 반환
+    if (cafeHours.includes('무제한')) {
+        return true;
+    }
+    
+    // 사용자가 '무제한'을 선택한 경우
     if (selectedHours === '무제한') {
-        return cafeHours.toLowerCase().includes('무제한');
+        return cafeHours.includes('무제한');
     }
     
     var hours = parseInt(selectedHours);
     var cafeHoursNum = parseInt(cafeHours) || 0;
     
+    // 카페 시간이 숫자가 아닌 경우 (예: "24시간")
     if (isNaN(cafeHoursNum)) {
-        // 카페 시간이 숫자가 아닌 경우 (예: "무제한")
-        return cafeHours.toLowerCase().includes('무제한');
+        return true; // 24시간 영업으로 간주하고 표시
     }
     
     return cafeHoursNum >= hours;
