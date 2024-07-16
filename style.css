@@ -12,16 +12,7 @@ body, html {
     flex: 1;
 }
 /* .map-button {        => 아래 범례 부분에 정의 
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    z-index: 10;
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    ...
   } */
   .back-to-map-button {
     position: fixed;
@@ -299,8 +290,8 @@ video {
         width: 100%;
         border-right: none;
         border-top: 1px solid #ddd;
-        max-height: 174px;
-        overflow-y: hidden;
+        /* max-height: 174px; */
+        overflow-y: auto;
     }
     .sidebar.expanded {
         max-height: 100%;

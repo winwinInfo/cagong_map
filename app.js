@@ -331,7 +331,7 @@ function applyFilter() {
     // 활성화된 필터를 화면에 표시합니다
     updateActiveFilters();
     // 필터 팝업을 닫습니다
-    toggleFilterPopup();
+    toggleFilterPopup(); //-> 이거 호출 때문에 필터 해제할 때마다 필터 창 뜸?
 }
 
 // 활성화된 필터를 화면에 표시하는 함수
@@ -394,9 +394,40 @@ function removeFilter(key) {
             document.getElementById('power-seats').value = '';
             break;
     }
+    
+    // 사용자가 선택한 필터 값들을 가져옵니다
+    var selectedHours = document.getElementById('hours-filter').value;
+    var maxPrice = parseInt(document.getElementById('price-max').value) || Infinity;
+    var minPowerSeats = parseInt(document.getElementById('power-seats').value) || 0;
 
-    // 필터를 다시 적용합니다
-    applyFilter();
+    // 활성화된 필터를 객체에 저장합니다
+    // 'all'이나 기본값인 경우 null로 설정하여 필터가 적용되지 않았음을 나타냅니다
+    activeFilters = {
+        hours: selectedHours !== 'all' ? selectedHours : null,
+        price: maxPrice !== Infinity ? maxPrice : null,
+        powerSeats: minPowerSeats !== 0 ? minPowerSeats : null
+    };
+
+    // 현재 요일을 확인합니다 (0: 일요일, 1-5: 평일, 6: 토요일)
+    var now = new Date();
+    var currentDay = now.getDay();
+    var isWeekend = currentDay === 0 || currentDay === 6;
+
+    // 필터 조건에 맞는 카페만 선별합니다
+    filteredCafes = cafes.filter(function(cafe) {
+        var cafeHours = isWeekend ? getHoursDisplay(cafe.Hours_weekend) : getHoursDisplay(cafe.Hours_weekday); //요일에 따라 값 달라짐
+        var hoursMatch = selectedHours === 'all' || checkHours(cafeHours, selectedHours);
+        var cafePrice = parseInt(cafe.Price.replace(/[^0-9]/g, ''));
+        var priceMatch = cafePrice <= maxPrice;
+        var powerSeatsMatch = calculateTotalPowerSeats(cafe) >= minPowerSeats;
+        
+        return hoursMatch && priceMatch && powerSeatsMatch;
+    });
+
+    // 필터링된 결과에 따라 지도의 마커를 업데이트합니다
+    updateMarkers();
+    // 활성화된 필터를 화면에 표시합니다
+    updateActiveFilters();
 }
 
 // 페이지 로드 시 필터 적용 버튼에 이벤트 리스너를 추가합니다
