@@ -21,15 +21,6 @@ function replaceNewlines(text) {
 }
 
 function toggleSidebar() {
-    // var sidebar = document.getElementById('sidebar');
-    // var cafeInfo = document.getElementById('cafe-info');
-
-    // if (cafeInfo.classList.contains('hidden')) {
-    //     sidebar.classList.toggle('expanded');
-    // } else {
-    //     cafeInfo.classList.add('hidden');
-    //     sidebar.classList.remove('expanded');
-    // }
     var sidebar = document.getElementById('sidebar');
     var activeFilters = document.getElementById('active-filters');
     var cafeInfo = document.getElementById('cafe-info');
@@ -89,12 +80,17 @@ function showCafeDetails(cafe) {
 
     document.getElementById('cafe-info').classList.remove('hidden');
     document.getElementById('cafe-name').textContent = cafe.Name;
-    // document.getElementById('cafe-message').textContent = cafe.Message;
     document.getElementById('cafe-message').innerHTML = replaceNewlines(cafe.Message);
     document.getElementById('cafe-address').textContent = cafe.Address;
     document.getElementById('cafe-opening-hours').innerHTML = replaceNewlines(cafe['영업 시간']);
-    //document.getElementById('cafe-opening-hours').textContent = cafe['영업 시간'];
-    document.getElementById('cafe-hours').innerHTML = replaceNewlines(cafe.Hours);
+
+    var hoursDisplay = getHoursDisplay(cafe.Hours_weekday);
+    if(cafe.Hours_weekday != cafe.Hours_weekend)
+    {
+        hoursDisplay = '평일 ' + getHoursDisplay(cafe.Hours_weekday) 
+        + ', ' + '주말 ' + getHoursDisplay(cafe.Hours_weekend);
+    }
+    document.getElementById('cafe-hours').innerHTML = hoursDisplay;
     document.getElementById('cafe-price').textContent = cafe.Price;
 
     // ID를 데이터 속성으로 저장
@@ -232,6 +228,12 @@ function addSchoolMarkers() {
    }
 }
 
+function getHoursDisplay(hours) { //스프레드시트 값(json 파일의 값)을 표시할 문자로 바꾸는 함수
+    if (hours === -1) return '무제한';
+    if (hours === 0) return '권장X';
+    return hours + '시간';
+}
+
 function fetchCafesFromJson(url = 'cafe_info.json') {
     fetch(url)
         .then(response => response.json())
@@ -241,8 +243,24 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             cafes.forEach(function(cafe) {
                 var content = document.createElement('div');
                 content.className = 'cafe-marker-label';
-                content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + replaceNewlines(cafe.Hours);
+                //content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + replaceNewlines(cafe.Hours);
 
+                var weekdayHours = getHoursDisplay(cafe.Hours_weekday);
+                var weekendHours = getHoursDisplay(cafe.Hours_weekend);
+                
+                if(weekdayHours === weekendHours)
+                {
+                    content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>'
+                     + weekdayHours        
+                }
+
+                else
+                {
+                    content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + 
+                    '평일 ' + weekdayHours + '<br>' +
+                    '주말 ' + weekendHours;
+                }
+                
                 if (cafe['Co-work'] === 1 || cafe['Co-work'] === '1') {
                     content.classList.add('co-work');
                 }
@@ -292,9 +310,15 @@ function applyFilter() {
         powerSeats: minPowerSeats !== 0 ? minPowerSeats : null
     };
 
+    // 현재 요일을 확인합니다 (0: 일요일, 1-5: 평일, 6: 토요일)
+    var now = new Date();
+    var currentDay = now.getDay();
+    var isWeekend = currentDay === 0 || currentDay === 6;
+
     // 필터 조건에 맞는 카페만 선별합니다
     filteredCafes = cafes.filter(function(cafe) {
-        var hoursMatch = selectedHours === 'all' || checkHours(cafe.Hours, selectedHours);
+        var cafeHours = isWeekend ? getHoursDisplay(cafe.Hours_weekend) : getHoursDisplay(cafe.Hours_weekday); //요일에 따라 값 달라짐
+        var hoursMatch = selectedHours === 'all' || checkHours(cafeHours, selectedHours);
         var cafePrice = parseInt(cafe.Price.replace(/[^0-9]/g, ''));
         var priceMatch = cafePrice <= maxPrice;
         var powerSeatsMatch = calculateTotalPowerSeats(cafe) >= minPowerSeats;
