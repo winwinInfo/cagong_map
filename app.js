@@ -243,19 +243,16 @@ function fetchCafesFromJson(url = 'cafe_info.json') {
             cafes.forEach(function(cafe) {
                 var content = document.createElement('div');
                 content.className = 'cafe-marker-label';
-                //content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + replaceNewlines(cafe.Hours);
 
                 var weekdayHours = getHoursDisplay(cafe.Hours_weekday);
                 var weekendHours = getHoursDisplay(cafe.Hours_weekend);
                 
-                if(weekdayHours === weekendHours)
-                {
+                if(weekdayHours === weekendHours){
                     content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>'
                      + weekdayHours        
                 }
 
-                else
-                {
+                else{
                     content.innerHTML = '<span class="cafe-name">' + cafe.Name + '</span><br>' + 
                     '평일 ' + weekdayHours + '<br>' +
                     '주말 ' + weekendHours;
@@ -527,17 +524,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetchCafesFromJson();
 
-//    var xlsxInput = document.createElement('input');
-//    xlsxInput.type = 'file';
-//    xlsxInput.accept = '.xlsx';
-//    xlsxInput.style.display = 'none';
-//    document.body.appendChild(xlsxInput);
-
-//    xlsxInput.addEventListener('change', function(e) {
-//        var file = e.target.files[0];
-//        fetchCafesFromXlsx(file);
-//    });
-//   xlsxInput.click();
 
    function searchCafes() {
        var query = document.getElementById('search').value.toLowerCase();
