@@ -63,7 +63,7 @@ function startFinding()
     var cafeId = cafeInfo.getAttribute('data-cafe-id');
     if (!cafeId) {
         alert('카페 정보를 찾을 수 없습니다.');
-        return;
+        return;  
     }
 
     // 카카오맵 길찾기 URL 생성
