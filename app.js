@@ -292,8 +292,8 @@ function toggleFilterPopup() {
 // 현재 활성화된 필터를 저장하는 객체
 let activeFilters = {};
 
-// 필터를 적용하는 함수
-function applyFilter() {
+    // 필터를 적용하는 함수
+    function applyFilter() {
     // 사용자가 선택한 필터 값들을 가져옵니다
     var selectedHours = document.getElementById('hours-filter').value;
     var maxPrice = parseInt(document.getElementById('price-max').value) || Infinity;
