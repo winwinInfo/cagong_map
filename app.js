@@ -1,4 +1,6 @@
-var map;
+// 전역 변수로 선언
+let map;
+let userLocationMarker;
 var markers = [];
 var cafes = [];
 
@@ -50,7 +52,7 @@ window.addEventListener('resize', function() {
 });
 
 
-////////////길찾기 버튼/////////////
+//////////////// 길찾기 버튼 //////////////////
 function startFinding() 
 {
     console.log('clicked!');
@@ -482,6 +484,8 @@ function updateMarkers() {
     });
 }
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
     var container = document.getElementById('map');
     var defaultPosition = new kakao.maps.LatLng(37.58823, 126.9936);
@@ -505,7 +509,7 @@ document.addEventListener("DOMContentLoaded", function() {
             map.setCenter(locPosition);
 
             // 마커를 생성합니다
-            displayMarker(locPosition);
+            updateUserLocation(position);
 
         }, function(error) {
             // GeoLocation 허용하지 않았거나 지원하지 않는 경우 Default 위치를 중심으로 합니다
@@ -569,62 +573,74 @@ document.addEventListener("DOMContentLoaded", function() {
         finderButton.addEventListener('click', startFinding);
     }
 
+    // 위치 추적 초기화
+    initializeLocationTracking();
 
-
-
-//////////////////////current location//////////////////////////////////
-
-    let watchId;
-    let isTracking = false;
-    
-    // 사용자 위치 표시 버튼 생성
+    // '현위치' 버튼에 이벤트 리스너 추가
     var locateButton = document.getElementById('locate-button');
-    if(locateButton) {
-        locateButton.addEventListener('click', toggleLocationTracking);
+    if (locateButton) {
+        locateButton.addEventListener('click', moveToCurrentLocation);
     } else {
-        console.log("no locate!");
+        console.log("'현위치' 버튼을 찾을 수 없습니다.");
     }
 
-    function toggleLocationTracking() {
-        if (!isTracking) {
-            startLocationTracking();
-        } else {
-            stopLocationTracking();
-        }
-    }
+    // 위치 추적 초기화
+    initializeLocationTracking();    
+});
 
-    function startLocationTracking() {
+//////////////////////current location///////////////////////////////
+    // 사용자 위치 표시 버튼 생성
+    //let userLocationMarker;
+
+    function initializeLocationTracking() {
         if (navigator.geolocation) {
-            locateButton.textContent = '추적 중지';
-            watchId = navigator.geolocation.watchPosition(displayMarker, handleLocationError, {
+            navigator.geolocation.watchPosition(updateUserLocation, handleLocationError, {
                 enableHighAccuracy: true,
                 timeout: 5000,
                 maximumAge: 0
             });
-            isTracking = true;
         } else {
             console.log("이 브라우저에서는 Geolocation이 지원되지 않습니다.");
             alert("이 브라우저에서는 위치 서비스가 지원되지 않습니다.");
         }
     }
-
-    function stopLocationTracking() {
-        if (watchId) {
-            navigator.geolocation.clearWatch(watchId);
-            watchId = null;
+    
+    function updateUserLocation(position) {
+        var lat = position.coords.latitude,
+            lon = position.coords.longitude;
+        
+        var locPosition = new kakao.maps.LatLng(lat, lon);
+    
+        // 현위치 마커 이미지 설정
+        var markerSize = 16;
+        var markerColor = '#FF0000';
+        var imageSrc = createCircleMarkerImage(markerColor, markerSize);
+        var imageSize = new kakao.maps.Size(markerSize, markerSize);
+        var imageOption = {offset: new kakao.maps.Point(markerSize/2, markerSize/2)};
+        
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+    
+        // 기존 마커가 있다면 위치만 업데이트, 없으면 새로 생성
+        if (userLocationMarker) {
+            userLocationMarker.setPosition(locPosition);
+        } else {
+            userLocationMarker = new kakao.maps.Marker({  
+                map: map, 
+                position: locPosition,
+                image: markerImage
+            }); 
         }
-        if (window.userLocationMarker) {
-            window.userLocationMarker.setMap(null);
-            window.userLocationMarker = null;
-        }
-        isTracking = false;
-        locateButton.textContent = '현위치';
     }
     
-    let errorCount = 0;
-
+    function moveToCurrentLocation() {
+        if (userLocationMarker) {
+            map.setCenter(userLocationMarker.getPosition());
+        } else {
+            alert("현재 위치를 확인할 수 없습니다.");
+        }
+    }
+    
     function handleLocationError(error) {
-        errorCount++;
         let errorMessage;
         switch(error.code) {
             case error.PERMISSION_DENIED:
@@ -641,16 +657,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }        
         console.warn(`ERROR(${error.code}): ${errorMessage}`);
-        
-        if(errorCount >= 3)
-        {
-            let errorMessage = "위치 추적 중 오류가 발생했습니다."
-            console.warn(errorMessage);
-            alert(errorMessage);
-            stopLocationTracking();
-        }
+        alert(errorMessage);
     }
-//마커 생성 함수
+    
     function createCircleMarkerImage(color, size) {
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
@@ -665,36 +674,17 @@ document.addEventListener("DOMContentLoaded", function() {
         
         return canvas.toDataURL();
     }
-
-    function displayMarker(position) {
-        console.log("New position:", position.coords.latitude, position.coords.longitude);
-        var lat = position.coords.latitude,
-            lon = position.coords.longitude;
-        
-        var locPosition = new kakao.maps.LatLng(lat, lon);
-
-        // 현위치 마커 이미지 설정
-        var markerSize=16;
-        var markerColor = '#FF0000';
-        var imageSrc = createCircleMarkerImage(markerColor, markerSize);
-        var imageSize = new kakao.maps.Size(markerSize, markerSize);
-        var imageOption = {offset: new kakao.maps.Point(markerSize/2, markerSize/2)};
-        
-        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-
-        // 기존 마커가 있다면 위치만 업데이트
-        if (window.userLocationMarker) {
-            window.userLocationMarker.setPosition(locPosition);
-        } else {
-            // 새 마커 생성
-            window.userLocationMarker = new kakao.maps.Marker({  
-                map: map, 
-                position: locPosition,
-                image: markerImage
-            }); 
-        }
-        map.setCenter(locPosition);      
-    }
-
-    // DOMContentLoaded 이벤트 리스너 종료 괄호
-});
+    
+    // // DOM이 로드된 후 실행
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // 위치 추적 초기화
+    //     initializeLocationTracking();
+    
+    //     // '현위치' 버튼에 이벤트 리스너 추가
+    //     var locateButton = document.getElementById('locate-button');
+    //     if (locateButton) {
+    //         locateButton.addEventListener('click', moveToCurrentLocation);
+    //     } else {
+    //         console.log("'현위치' 버튼을 찾을 수 없습니다.");
+    //     }
+    // }
