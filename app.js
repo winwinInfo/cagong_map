@@ -102,24 +102,35 @@ function showCafeDetails(cafe) {
     var videoContainer = document.getElementById('cafe-video-container');
     if (videoContainer) {
         videoContainer.innerHTML = ''; // 기존 내용 초기화
-        if (cafe['Video URL'].includes('youtube.com/shorts/')) {
-            var videoId = cafe['Video URL'].split('youtube.com/shorts/')[1];
-            var iframeElement = document.createElement('iframe');
-            iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
-            iframeElement.width = '100%';
-            iframeElement.height = '100%';
-            iframeElement.frameborder = '0';
-            iframeElement.allowfullscreen = true;
-            videoContainer.appendChild(iframeElement);
+        if (cafe['Video URL'] && cafe['Video URL'].trim() !== '') {
+            if (cafe['Video URL'].includes('youtube.com/shorts/')) {
+                var videoId = cafe['Video URL'].split('youtube.com/shorts/')[1];
+                var iframeElement = document.createElement('iframe');
+                iframeElement.src = `https://www.youtube.com/embed/${videoId}`;
+                iframeElement.width = '100%';
+                iframeElement.height = '100%';
+                iframeElement.frameborder = '0';
+                iframeElement.allowfullscreen = true;
+                videoContainer.appendChild(iframeElement);
+            } else {
+                var videoElement = document.createElement('video');
+                videoElement.controls = true;
+                videoElement.style.width = '100%';
+                var sourceElement = document.createElement('source');
+                sourceElement.src = cafe['Video URL'];
+                sourceElement.type = 'video/mp4';
+                videoElement.appendChild(sourceElement);
+                videoContainer.appendChild(videoElement);
+            }
         } else {
-            var videoElement = document.createElement('video');
-            videoElement.controls = true;
-            videoElement.style.width = '100%';
-            var sourceElement = document.createElement('source');
-            sourceElement.src = cafe['Video URL'];
-            sourceElement.type = 'video/mp4';
-            videoElement.appendChild(sourceElement);
-            videoContainer.appendChild(videoElement);
+            // 영상이 없는 경우 대체 텍스트 표시
+            var textElement = document.createElement('p');
+            textElement.textContent = '영상 준비 중입니다.';
+            textElement.style.textAlign = 'center';
+            textElement.style.padding = '20px';
+            textElement.style.backgroundColor = '#f0f0f0';
+            textElement.style.color = '#666';
+            videoContainer.appendChild(textElement);
         }
     }
 
