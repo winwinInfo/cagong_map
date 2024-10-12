@@ -226,6 +226,9 @@ body, html {
 .info.hidden {
     display: none;
 }
+.hidden{
+    display:none;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -510,3 +513,69 @@ video {
     border: 2px solid white;
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
+
+
+
+/* 성균카공스팟!!! */
+.building-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.building-title {
+    margin-bottom: 20px;
+}
+
+.floor-info {
+    margin-bottom: 30px;
+}
+
+.floor-title {
+    margin-bottom: 10px;
+}
+
+.floor-image {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+}
+
+.seating-info {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.seating-info th, .seating-info td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.seating-info th {
+    background-color: #f2f2f2;
+}
+
+.no-info {
+    color: #666;
+}
+
+  .skku-spot-label {
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid navy;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: navy;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.skku-spot-label:hover {
+    background-color: navy;
+    color: white;
+}
+

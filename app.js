@@ -14,6 +14,265 @@ var schoolCoordinates = {
    "홍대": new kakao.maps.LatLng(37.55074, 126.9255)
 };
 
+var SKKUSpot = {
+    "경영관": {
+        position: new kakao.maps.LatLng(37.588518, 126.992662),
+        floors: [
+            {
+                name:"지하 1층(원형극장 앞)",
+                image:"경영관지하1층(원형극장 앞).png",
+                seats: [
+                    { type: "1인석", total: 33, power: 33},
+                    { type: "3인석", total: 2, power: 0}
+                ]
+            },
+            {
+                name:"지하 1층(학부열람실 앞)",
+                image:"경영관지하1층(학부열람실 앞).png",
+                seats: [
+                    { type: "3인석", total: 3, power: 0},
+                    { type: "4인석", total: 1, power: 1},
+                    { type: "5인석", total: 2, power: 2},
+                    { type: "6인석", total: 1, power: 1},
+                ]
+            },
+            {
+                name:"1층",
+                image:"경영관1층.png",
+                seats: [
+                    { type: "1인석", total: 3, power: 0},
+                    { type: "2인석", total: 2, power: 0},
+                    { type: "4인석", total: 3, power: 0},
+                ]
+            },
+            {
+                name:"1층",
+                image:"경영관1층(커리어부스).png",
+                seats: [
+                    { type: "4인석", total: 10, power: 10},
+                ]
+            },     
+            {
+                name:"2층",
+                image:"경영관2층.png",
+                seats: [
+                    { type: "1인석", total: 10, power: 10},
+                    { type: "3인석", total: 2, power: 0},
+                    { type: "4인석", total: 10, power: 10},
+                ]
+            },            
+        ]
+    },
+    "국제관": {
+        position: new kakao.maps.LatLng(37.586898, 126.995215),
+        floors:[
+            {
+                name: "로비층",
+                image: "국제관로비층.png",
+                seats: [
+                    { type: "1인석", total: 6, power: 6},
+                    { type: "4인석", total: 3, power: 0},
+                ]                
+            },            
+            {
+                name: "1층(학생성공라운지)",
+                image: "국제관1층(학생성공라운지).png",
+                seats: [
+                    { type: "1인석", total: 10, power: 4},
+                    { type: "4인석", total: 2, power: 2},
+                    { type: "5인석", total: 1, power: 1},
+                    { type: "9인석", total: 1, power: 0},
+                ]                
+            },
+            {
+                name: "1층(라운지)",
+                image: "국제관1층(라운지).png",
+                seats: [
+                    { type: "2인석", total: 4, power: 0},
+                    { type: "4인석", total: 11, power: 4},
+                    { type: "5인석", total: 1, power: 0},
+                    { type: "8인석", total: 2, power: 2},
+                ]                
+            },
+            {
+                name: "지하 2층",
+                image: "국제관지하 2층.png",
+                seats: [
+                    { type: "1인석", total: 14, power: 10},
+                    { type: "2인석", total: 1, power: 0},
+                    { type: "4인석", total: 5, power: 1},
+                    { type: "6인석", total: 6, power: 0},
+                ]                
+            },            
+            {
+                name: "지하 3층",
+                image: "국제관지하 3층.png",
+                seats: [
+                    { type: "1인석", total: 7, power: 7},
+                    { type: "2인석", total: 6, power: 0},
+                    { type: "6인석", total: 3, power: 12},
+                    { type: "10인석", total: 1, power: 8},
+                ]                
+            },            
+        ]
+    },
+    "인문관": {
+        position: new kakao.maps.LatLng(37.588832, 126.991827),
+        floors: [
+            {
+                name: "2층(1)",
+                image: "인문관2층(1).png",
+                seats: [
+                    { type: "1인석", total: 33, power: 25}
+                ]
+            },
+            {
+                name: "2층(2)",
+                image: "인문관2층(2).png",
+                seats: [
+                    { type: "1인석", total: 33, power: 25}
+                ]
+            },
+            {
+                name: "3층",
+                image: "인문관3층.png",
+                seats: [
+                    { type: "1인석", total: 13, power: 12}
+                ]
+            },   
+            {
+                name: "6층",
+                image: "인문관6층.png",
+                seats: [
+                    { type: "1인석", total: 6, power: 4}
+                ]
+            },                        
+            {
+                name: "7층",
+                image: "인문관7층.png",
+                seats: [
+                    { type: "1인석", total: 10, power: 10}
+                ]
+            },                        
+        ]
+    },
+    "학생회관": {
+        position: new kakao.maps.LatLng(37.587519, 126.993294),
+        floors: [
+            {
+                name: "학생회관 라운지",
+                image: "학생회관.png",
+                seats: [
+                    { type: "좌석", total: 88, power: 88}
+                ]
+            }
+        ]
+    },
+    "교수회관": new kakao.maps.LatLng(37.588550, 126.993222),
+}
+
+//성대 카공스팟 표시하기 
+function showSKKUSpotDetails(name, spot) {
+    // 카페 정보 숨기기
+    document.getElementById('cafe-info').classList.add('hidden');
+    
+    // 건물 정보 표시
+    var buildingInfo = document.getElementById('building-info');
+    buildingInfo.classList.remove('hidden');
+    
+    // building-info 내용 초기화
+    buildingInfo.innerHTML = '';
+
+    // 건물 정보 내용 생성
+    var content = document.createElement('div');
+    content.className = 'building-content';
+    content.innerHTML = `<h2 class="building-title">${name}</h2>`;
+
+    if (spot.floors && Array.isArray(spot.floors)) {
+        spot.floors.forEach(floor => {
+            content.innerHTML += `
+                <div class="floor-info">
+                    <h3 class="floor-title">${floor.name}</h3>
+                    <img src="${floor.image}" alt="${name} ${floor.name}" class="floor-image">
+                    <table class="seating-info">
+                        <thead>
+                            <tr>
+                                <th>좌석 유형</th>
+                                <th>총 좌석</th>
+                                <th>콘센트 이용 가능</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${floor.seats.map(seat => `
+                                <tr>
+                                    <td>${seat.type}</td>
+                                    <td>${seat.total}자리</td>
+                                    <td>${seat.power}자리</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        });
+    } else {
+        content.innerHTML += '<p class="no-info">해당 건물의 상세 정보가 없습니다.</p>';
+    }
+
+    // 생성한 내용을 building-info에 추가
+    buildingInfo.appendChild(content);
+
+    // 사이드바 표시
+    document.getElementById('sidebar').classList.add('expanded');
+}
+
+
+function createSKKUOverlay(name, spot) {
+    var content = document.createElement('div');
+    content.className = 'skku-spot-label';
+    content.innerHTML = name;
+    content.style.cssText = 'background: white; padding: 5px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer;';
+
+    var overlay = new kakao.maps.CustomOverlay({
+        map: map,
+        position: spot.position,
+        content: content,
+        yAnchor: 1.1
+    });
+
+    content.addEventListener('click', function() {
+        showSKKUSpotDetails(name, spot);
+    });
+
+    return overlay;
+}
+
+function initializeSKKUSpots() {
+    for (var name in SKKUSpot) {
+        if (SKKUSpot[name].position) {  // position 속성이 있는 경우에만 처리
+            var overlay = createSKKUOverlay(name, SKKUSpot[name]);
+            // 필요하다면 생성된 오버레이를 저장할 배열을 만들어 추가할 수 있습니다.
+            // 예: skkuOverlays.push(overlay);
+        }
+    }
+}
+
+// 사이드바 초기화 함수
+function clearSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    if (!sidebar) {
+        console.error('Sidebar element not found');
+        return;
+    }
+
+    // 사이드바 내용 초기화
+    sidebar.innerHTML = '<div id="sidebar-content"></div>';
+
+    // 사이드바 확장 상태 초기화 (필요한 경우)
+    sidebar.classList.remove('expanded');
+}
+
+
 function expandSidebar() {
    document.getElementById('sidebar').classList.add('expanded');
 }
@@ -78,6 +337,16 @@ function startFinding()
 ////////////////////////전역scope////////////////////
 
 function showCafeDetails(cafe) {
+    
+    // 건물 정보 숨기기
+    document.getElementById('building-info').classList.add('hidden');
+    
+    // 카페 정보 표시
+    var cafeInfo = document.getElementById('cafe-info');
+    cafeInfo.classList.remove('hidden');
+
+    
+
     console.log("showCafeDetails called for:", cafe.Name);
 
     document.getElementById('cafe-info').classList.remove('hidden');
@@ -189,6 +458,12 @@ function showCafeDetails(cafe) {
             }
         }
     }
+
+/////   
+    // var sidebar = document.getElementById('sidebar');
+    // if (sidebar) {
+    //     sidebar.classList.add('expanded');
+    // } 
 
     map.setCenter(new kakao.maps.LatLng(cafe['Position (Latitude)'], cafe['Position (Longitude)']));
 
@@ -539,6 +814,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     fetchCafesFromJson();
 
+    initializeSKKUSpots();
+
 
    function searchCafes() {
        var query = document.getElementById('search').value.toLowerCase();
@@ -612,7 +889,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // 전역 변수로 선언
+// 전역 변수로 선언
 let userLocationOverlay;
 
 function updateUserLocation(position) {
@@ -708,61 +985,3 @@ function handleLocationError(error) {
     console.warn(`ERROR(${error.code}): ${errorMessage}`);
 }
 
-// function createCircleMarkerImage(color, size) {
-//     var canvas = document.createElement('canvas');
-//     var context = canvas.getContext('2d');
-    
-//     canvas.width = size;
-//     canvas.height = size;
-    
-//     context.beginPath();
-//     context.arc(size/2, size/2, size/2, 0, 2*Math.PI);
-//     context.fillStyle = color;
-//     context.fill();
-    
-//     return canvas.toDataURL();
-// }
-
-
-
-    // function updateUserLocation(position) {
-    //     var lat = position.coords.latitude,
-    //         lon = position.coords.longitude;
-        
-    //     var locPosition = new kakao.maps.LatLng(lat, lon);
-    
-    //     // 현위치 마커 이미지 설정
-    //     var markerSize = 16;
-    //     var markerColor = '#FF0000';
-    //     var imageSrc = createCircleMarkerImage(markerColor, markerSize);
-    //     var imageSize = new kakao.maps.Size(markerSize, markerSize);
-    //     var imageOption = {offset: new kakao.maps.Point(markerSize/2, markerSize/2)};
-        
-    //     var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
-    
-    //     // 기존 마커가 있다면 위치만 업데이트, 없으면 새로 생성
-    //     if (userLocationMarker) {
-    //         userLocationMarker.setPosition(locPosition);
-    //     } else {
-    //         userLocationMarker = new kakao.maps.Marker({  
-    //             map: map, 
-    //             position: locPosition,
-    //             image: markerImage
-    //         }); 
-    //     }
-    // }
-    
-    
-    // // DOM이 로드된 후 실행
-    // document.addEventListener("DOMContentLoaded", function() {
-    //     // 위치 추적 초기화
-    //     initializeLocationTracking();
-    
-    //     // '현위치' 버튼에 이벤트 리스너 추가
-    //     var locateButton = document.getElementById('locate-button');
-    //     if (locateButton) {
-    //         locateButton.addEventListener('click', moveToCurrentLocation);
-    //     } else {
-    //         console.log("'현위치' 버튼을 찾을 수 없습니다.");
-    //     }
-    // }
