@@ -186,7 +186,13 @@ function showSKKUSpotDetails(name, spot) {
     // 건물 정보 내용 생성
     var content = document.createElement('div');
     content.className = 'building-content';
-    content.innerHTML = `<h2 class="building-title">${name}</h2>`;
+    // 뒤로가기 버튼 추가
+    content.innerHTML = `
+        <button id="back-to-map" class="back-to-map-button" onclick="toggleSidebar()">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <h2 class="building-title">${name}</h2>
+    `;
 
     if (spot.floors && Array.isArray(spot.floors)) {
         spot.floors.forEach(floor => {
@@ -284,9 +290,12 @@ function replaceNewlines(text) {
 function toggleSidebar() {
     var sidebar = document.getElementById('sidebar');
     var activeFilters = document.getElementById('active-filters');
-    var cafeInfo = document.getElementById('cafe-info');
+    var cafeInfo = document.getElementById('cafe-info');   
+    var buildingInfo = document.getElementById('building-info'); // 건물 정보 요소 추가
 
-    if (cafeInfo.classList.contains('hidden')) {
+
+    // 카페 정보와 건물 정보가 모두 숨겨져 있는 경우
+    if (cafeInfo.classList.contains('hidden') && buildingInfo.classList.contains('hidden')) {
         sidebar.classList.toggle('expanded');
         if (sidebar.classList.contains('expanded')) {
             activeFilters.style.top = sidebar.offsetHeight + 'px';
@@ -294,7 +303,9 @@ function toggleSidebar() {
             activeFilters.style.top = '174px';
         }
     } else {
+        // 카페 정보나 건물 정보가 표시되어 있는 경우 모두 숨김
         cafeInfo.classList.add('hidden');
+        buildingInfo.classList.add('hidden');
         sidebar.classList.remove('expanded');
         activeFilters.style.top = '174px';
     }
